@@ -4,11 +4,9 @@ o 'SemNetDictionaries' documentation for the 'SemNetDictionaries' package
 
 o 'load.dictionaries' wrapper function for loading dictionaries into the 'SemNetCleaner' package
 
-o 'find.dictionaries' function searches for and finds dictionaries stored in 'SemNetDictionaries' and on your computer
+o 'find.dictionaries' function searches for and finds the names and paths of dictionaries stored on your computer
 
-o 'extra.dictionaries' function identifies your appendix dictionaries that have been stored and saved
-
-o 'dictionaries' data for dictionaries included in 'SemNetDictionaries'
+o 'dictionaries' function for dictionaries included in 'SemNetDictionaries'
 
 o 'append.dictionary' function allows you to create and store your own dictionaries
 
