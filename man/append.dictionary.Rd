@@ -4,55 +4,85 @@
 \alias{append.dictionary}
 \title{Appendix Dictionary}
 \usage{
-append.dictionary(..., dict.name)
+append.dictionary(..., dictionary.name, save.location = c("temp",
+  "choose"))
 }
 \arguments{
 \item{...}{Character vector.
-A vector of words to create or add to dictionary}
+A vector of words to create or add to a dictionary}
 
-\item{dict.name}{Characters.
+\item{dictionary.name}{Character.
 Name of dictionary to create or add words to.
 Defaults to \code{"appendix.dictionary"}.
 Input a name to create or add to an existing dictionary}
+
+\item{save.location}{Character.
+A choice for where to store appendix dictionary.
+Defaults to \code{"temp"}.
+
+\code{"temp"} creates a temporary
+dictionary that is deleted once \code{R} is closed
+
+\code{"choose"} allows you to choose a directory for
+more permenant storage. This will allow you to use this dictionary
+in the future}
 }
 \description{
 A function designed to post-hoc update the dictionaries in the
 \code{\link{SemNetDictionaries}}. This function is used to add
 words that are not included in \code{\link{SemNetDictionaries}}'
-dictionaries. This allows for new semantic categories or words to be included
+dictionaries. This allows for new semantic categories or word lists to be included
 for future use. THIS IS YOUR OWN PERSONAL DICTIONARY. Dictionaries created using this function
-will ONLY be available on your current computer. An open-source community-derived
+will ONLY be available on your current computer. Open-source community-derived
 dictionaries can be uploaded to and downloaded from
 \href{AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}
 }
 \details{
-Dictionaries are stored in your \code{R} packages library.
-To find where your dictionaries are stored, use the
-\code{\link[SemNetDictionaries]{find.dictionaries}} function. A new
-folder is created, so that your appendix dictionary files can be stored
-without deletion when updating the \code{\link{SemNetDictionaries}}
-package. These dictionaries are only stored on your private computer
-and must either be publicly shared or transferred to other computers in
-order to use them elsewhere. Please see the documentation for
-\code{\link{SemNetDictionaries}} for more details.
-
 Appendix dictionaries are useful for storing spelling
 definitions that are not available in the \code{\link{SemNetDictionaries}}
 package. This function enables the storage of personalized dictionaries,
 which can be used in combination with other dictionaries to facilitate
-the cleaning of text data. Although these dictionaries are personal,
-they can also be shared for other users. Please submit a pull request
-with your dictionary to be added to the package at: \href{AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}
+the cleaning of text data.
+
+Dictionaries are either stored in \code{R}'s temporary files,
+where they will be deleted once \code{R} is closed, or in a location
+that you choose. A menu will pop-up asking whether you would like to
+save or update your dictionary (\code{"Save or update dictionary?"}).
+You have two options:
+
+\code{Yes} (or \code{1}) will give this function permission to
+save (or update) your dictionary to either your temporary folder
+or chosen directory. If \code{save.location = "temp"}, your file will
+still be deleted after closing \code{R}. The only way to store your
+dictionary on your computer is by choosing \code{save.location = "choose"}.
+If \code{save.location = "choose"} is input, then dictionaries in that directory
+with the same name as \code{dictionary.name} (e.g., "appedix.dictionary") will be updated.
+
+\code{No} (or \code{2}) will not give this function permission to save
+your dictionary to your computer. The dictionary will automatically be
+saved to your temporary folder where it will be deleted upon exiting \code{R}.
+
+To find where your dictionaries are stored, use the
+\code{\link[SemNetDictionaries]{find.dictionaries}} function.
+
+These dictionaries (temporary and otherwise) are only stored on
+your private computer and must either be publicly shared or
+transferred to other computers in order to use them elsewhere.
+Please see the documentation for \code{\link{SemNetDictionaries}} for more details.
+If you would like to share a dictionary for others to use, then please submit
+a pull request or post an issue with your dictionary:
+\href{AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}.
 }
 \examples{
+\dontrun{
 
 append.dictionary(c("words","are","fun"))
+}
 
 }
 \seealso{
 \code{\link{find.dictionaries}} to find where dictionaries are stored,
-\code{\link{dictionaries}} to identify available dictionaries,
-\code{\link{extra.dictionaries}} to see appendix dictionaries not in
+\code{\link{dictionaries}} to identify dictionaries in
 \code{\link{SemNetDictionaries}}
 }
 \author{

@@ -8,18 +8,30 @@ load.dictionaries(dictionary)
 }
 \arguments{
 \item{dictionary}{Character vector.
-Dictionaries to load (see examples)}
+Dictionaries to load.
+
+\code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in \code{\link{SemNetDictionaries}}
+
+\code{\link[SemNetDictionaries]{find.dictionaries}} will identify dictionaries on your computer}
 }
 \value{
-Returns a vector of words in specified dictionaries
+Returns a vector of words that has been combined
+and alphabetized from specified dictionaries
 }
 \description{
-A wrapper function for to load text dictionaries in
-\code{\link{SemNetCleaner}}
+A wrapper function for to load text dictionaries into
+\code{\link{SemNetCleaner}}. Searches for dictionaries in 
+\code{\link{SemNetDictionaries}} and on your computer. Outputs 
+a word list that is combined from all dictionaries entered 
+in the \code{dictionary} argument
 }
 \examples{
+#find dictionaries to load
+dictionaries()
 
+\dontrun{
 load.dictionaries("animals")
+}
 
 }
 \author{

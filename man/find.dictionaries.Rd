@@ -2,17 +2,14 @@
 % Please edit documentation in R/find.dictionaries.R
 \name{find.dictionaries}
 \alias{find.dictionaries}
-\title{Finds Locations of Dictionaries}
+\title{Finds Names and Locations of Appendix Dictionaries}
 \usage{
 find.dictionaries()
 }
 \value{
-Returns a list containing:
+\item{names}{Returns the names of the appendix dictionary file(s)}
 
-\item{location}{The location where \code{R} saves the
-dictionaries}
-
-\item{files}{The dictionary files that are stored in the location. If there is no output
+\item{files}{Returns the dictionary file(s) that are stored in each given path. If there is no output
 (e.g., \code{character(0)}), then no appendix dictionary file exists
 (one can be created using the \code{\link[SemNetDictionaries]{append.dictionary}} function)}
 }
@@ -25,18 +22,27 @@ This function identifies where the
 \code{\link[SemNetDictionaries]{append.dictionary}} function
 has stored appendix dictionaries. The default for the
 \code{\link[SemNetDictionaries]{append.dictionary}} function
-is to store dictionaries in your \code{R} packages folder.
-This folder is the default for where \code{R} stores your downloaded and installed packages.
+is to store dictionaries in your temporary \code{R} data folder.
+If you do not know where this is, a path is provided to you
+in the output of this function (see \code{files} below).
 }
 \examples{
+\dontrun{
 
+#No appendix dictionaries found
 find.dictionaries()
+
+#Make a dictionary
+append.dictionary(c("words","are","fun"))
+
+#Dictionary can now be found
+find.dictionaries()
+}
 
 }
 \seealso{
 \code{\link{append.dictionary}} to create a new dictionary,
-\code{\link{dictionaries}} to identify available dictionaries,
-\code{\link{extra.dictionaries}} to see appendix dictionaries not in
+\code{\link{dictionaries}} to identify dictionaries in
 \code{\link{SemNetDictionaries}}
 }
 \author{
