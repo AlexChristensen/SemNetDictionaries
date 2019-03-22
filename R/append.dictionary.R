@@ -74,7 +74,7 @@
 #' \code{\link{dictionaries}} to identify dictionaries in
 #' \code{\link{SemNetDictionaries}}
 #' 
-#' @importFrom utils menu choose.dir
+#' @importFrom utils menu
 #' 
 #' @export
 #Appendix Dictionary
@@ -98,7 +98,7 @@ append.dictionary <- function(...,
     }else if(save.location == "choose")
     {
         #let user select path
-        sav.loc <- choose.dir()
+        sav.loc <- tcltk::tk_choose.dir()
     }
     
     #identify saved files in save location
