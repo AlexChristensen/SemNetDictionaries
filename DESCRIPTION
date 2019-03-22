@@ -1,0 +1,16 @@
+Package: SemNetDictionaries
+Title: Dictionaries for the 'SemNetCleaner' package
+Version: 0.1.0
+Date: 2019-03-21
+Author: Alexander P. Christensen
+Maintainer: Alexander P. Christensen <alexpaulchristensen@gmail.com>
+Description: Implements dictionaries that can be used in the 'SemNetCleaner' package. Also includes several functions aimed at facilitating the text cleaning analysis in the 'SemNetCleaner' package. This package is designed to integrate and update word lists and dictionaries based on each user's individual needs by allowing users to store and save their own dictionaries. Dictionaries can be added to the 'SemNetDictionaries' package by submitting user-defined dictionaries to <https://github.com/AlexChristensen/SemNetDictionaries>.
+Depends: R (>= 3.3.0)
+License: GPL (>= 3.0)
+URL: https://github.com/AlexChristensen/SemNetDictionaries
+BugReports: https://github.com/AlexChristensen/SemNetDictionaries/issues
+NeedsCompilation: no
+Encoding: UTF-8
+LazyData: true
+Imports: SemNetCleaner
+RoxygenNote: 6.1.1
