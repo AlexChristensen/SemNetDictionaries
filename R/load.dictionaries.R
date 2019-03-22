@@ -1,15 +1,27 @@
 #' Load Dictionaries
-#' @description A wrapper function for to load text dictionaries in
-#' \code{\link{SemNetCleaner}}
+#' @description A wrapper function for to load text dictionaries into
+#' \code{\link{SemNetCleaner}}. Searches for dictionaries in 
+#' \code{\link{SemNetDictionaries}} and on your computer. Outputs 
+#' a word list that is combined from all dictionaries entered 
+#' in the \code{dictionary} argument
 #' 
 #' @param dictionary Character vector.
-#' Dictionaries to load (see examples)
+#' Dictionaries to load.
 #' 
-#' @return Returns a vector of words in specified dictionaries
+#' \code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in \code{\link{SemNetDictionaries}}
+#' 
+#' \code{\link[SemNetDictionaries]{find.dictionaries}} will identify dictionaries on your computer
+#' 
+#' @return Returns a vector of words that has been combined
+#' and alphabetized from specified dictionaries
 #' 
 #' @examples 
-#'
+#' #find dictionaries to load
+#' dictionaries()
+#' 
+#' \dontrun{
 #' load.dictionaries("animals")
+#' }
 #' 
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>
 #' 
@@ -19,44 +31,43 @@
 #Load Dictionary Function
 load.dictionaries <- function (dictionary)
 {
-    
     #set in case of corpus being used
     if(length(dictionary)>10)
     {dict.list <- list(dictionary)
     }else{
         
-        ###############################
-        ####START LOAD DICTIONARIES####
-        ###############################
-        
         #initialize dictionary list
         dict.list <- list()
         
         #update dictionaries with user-defined dictionaries
-        up.dict <- SemNetDictionaries::extra.dictionaries()
-        loc <- SemNetDictionaries::find.dictionaries()$location
-        fil <- SemNetDictionaries::find.dictionaries()$files
+        find.dict <- SemNetDictionaries::find.dictionaries()
+        name.dict <- find.dict$names
+        path.dict <- find.dict$files
+        sndict <- SemNetDictionaries::dictionaries()
         
         #identify number of dictionaries
         for(i in 1:length(dictionary))
         {
-            #grab name of dictionary or dictionaries
-            str.vec <- unlist(strsplit(dictionary[i],split="[.]"))
+            #remove any .dictionary if added by user
+            dict <- gsub(".dictionary.*","",dictionary[i])
             
-            #add dictionary to end of dict.name if it's not there
-            if(!"dictionary" %in% str.vec)
-            {dict <- paste(str.vec,"dictionary",sep=".")}
+            #add dictionary to end of dict.name for data loading
+            if(!"dictionary" %in% dict)
+            {dict.long <- paste(dict,"dictionary",sep=".")}
             
-            if(dict %in% SemNetDictionaries::dictionaries)
+            #check if dictionary is in 'SemNetDictionaries' or on computer
+            if(dict %in% sndict)
             {
-                dict.list[[i]] <- get(data(list = dict,envir = environment()))
-            }else if(dict %in% up.dict)
-            {
-                #target dictionary name
-                target.dict <- which(up.dict==dict)
+                #load dictionary data
+                dict.list[[i]] <- get(data(list = dict.long,envir = environment()))
                 
-                #load into dictionary list
-                dict.list[[i]] <- get(load(paste(loc,fil[target.dict],sep="/")))
+            }else if(dict %in% name.dict)
+            {
+                #target dictionary in path
+                target <- which(dict==name.dict)
+                
+                #load dictionary data
+                dict.list[[i]] <- readRDS(path.dict[target])
                 
             }else{message(paste(dict,"was not found in existing dictionaries.",sep=" "))}
         }
@@ -65,10 +76,6 @@ load.dictionaries <- function (dictionary)
     
     #combine into vector and alphabetize
     full.dict <- sort(unlist(dict.list))
-    
-    #############################
-    ####END LOAD DICTIONARIES####
-    #############################
     
     return(full.dict)
 }
