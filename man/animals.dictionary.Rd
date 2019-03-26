@@ -4,12 +4,12 @@
 \name{animals.dictionary}
 \alias{animals.dictionary}
 \title{Animals Dictionary}
-\format{animals.dictionary (vector, length = 848)}
+\format{animals.dictionary (vector, length = 1231)}
 \usage{
 data(animals.dictionary)
 }
 \description{
-A database of possible animals responses (\emph{n} = 848)
+A database of possible animals responses (\emph{n} = 881)
 }
 \details{
 To add additional animals to the dictionary, please make an

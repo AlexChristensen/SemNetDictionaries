@@ -8,30 +8,41 @@ load.dictionaries(dictionary)
 }
 \arguments{
 \item{dictionary}{Character vector.
-Dictionaries to load.
+Dictionaries to load
 
-\code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in \code{\link{SemNetDictionaries}}
+Dictionaries in your global environment
+MUST be objects called \code{"*.dictionary"} (see examples).
+
+\code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in the \code{\link{SemNetDictionaries}} package
 
 \code{\link[SemNetDictionaries]{find.dictionaries}} will identify dictionaries on your computer}
 }
 \value{
-Returns a vector of words that has been combined
-and alphabetized from specified dictionaries
+Returns a vector of unique words that have been combined
+and alphabetized from the specified dictionaries
 }
 \description{
-A wrapper function for to load text dictionaries into
-\code{\link{SemNetCleaner}}. Searches for dictionaries in 
-\code{\link{SemNetDictionaries}} and on your computer. Outputs 
-a word list that is combined from all dictionaries entered 
+A wrapper function to load dictionaries into
+the 'SemNetCleaner' package. Searches for dictionaries in \code{R}'s global
+environment, the \code{\link{SemNetDictionaries}} package, and on your computer.
+Outputs a unique word list that is combined from all dictionaries entered 
 in the \code{dictionary} argument
 }
 \examples{
 #find dictionaries to load
 dictionaries()
 
-\dontrun{
+#load "animals" dictionary
 load.dictionaries("animals")
-}
+
+#create a dictionary
+new.dictionary <- append.dictionary(c("words", "are", "fun"))
+
+#load created dictionary
+load.dictionaries("new")
+
+#load animals and new dictionary
+load.dictionaries(c("animals", "new")) 
 
 }
 \author{
