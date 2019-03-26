@@ -1,3 +1,11 @@
+Changes in version 0.1.1
+
+o updated documentation
+
+o updated 'animals.dictionary' data
+
+o 'append.dictionary' no longer stores dictionaries in temporary files. Instead, dictionaries are output as a vector object in R's global environment or user is prompted to save the dictionary to their computer
+
 Changes in version 0.1.0
 
 o 'SemNetDictionaries' documentation for the 'SemNetDictionaries' package
