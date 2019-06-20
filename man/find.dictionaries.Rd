@@ -38,10 +38,7 @@ Sys.time() - t0
 }
 
 #Make a dictionary
-append.dictionary(c("words","are","fun"),
-dictionary.name = "example",
-save.location = "path",
-path = tempdir())
+example.dictionary <- append.dictionary(c("words","are","fun"), save.location = "envir")
 
 #Dictionary can now be found
 find.dictionaries("example")

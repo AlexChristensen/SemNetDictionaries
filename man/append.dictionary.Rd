@@ -15,35 +15,41 @@ A vector of words to create or add to a dictionary}
 Name of dictionary to create or add words to.
 Defaults to \code{"appendix"}.
 Input a name to create or add to an existing dictionary.
-This function with automaticaly name files with the \code{"*.dictionary.rds"} suffix.}
+This function with automaticaly name files with the \code{"*.dictionary.rds"} suffix}
 
 \item{save.location}{Character.
 A choice for where to store appendix dictionary.
 Defaults to \code{"envir"}.
 
-\code{"envir"} will return dictionary as a vector object
-to R's global environment
+\itemize{
 
-\code{"choose"} allows you to choose a directory for
-more permenant storage. This will allow you to use this dictionary
-in the future
+\item{\code{"envir"}:}
+{Returns dictionary as a vector object to \code{R}'s global environment}
 
-\code{"path"} allows you to specify a path to a directory
-if it is already known. This will allow direct updates to the directory
-and bypass the prompts in the save/update menus. This will also
+\item{\code{"choose"}:}
+{User chooses a directory for more permenant storage. This will
 allow you to use this dictionary in the future}
 
+\item{\code{"path"}:}
+{User specifies a path to a directory if it is already known. This
+will allow direct updates to the directory and bypass the prompts in
+the save/update menus. This will also allow you to use
+this dictionary in the future}
+
+}}
+
 \item{path}{Character.
-A path to an existing directory}
+A path to an existing directory.
+Only necessary for \code{save.location = "path"}}
 }
 \description{
 A function designed to create post-hoc dictionaries in the
 \code{\link{SemNetDictionaries}} package. This allows for new semantic categories or word lists
-to be saved for future use. THIS IS YOUR OWN PERSONAL DICTIONARY.
+to be saved for future use (i.e., your own perosnality dictionary).
 Dictionaries created using this function can either be saved as an R object to your global
 environment or as a .rds file on your current computer. Open-source community-derived
 dictionaries can be uploaded to and downloaded from
-\href{AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}
+\href{https://github.com/AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}
 }
 \details{
 Appendix dictionaries are useful for storing spelling
@@ -58,25 +64,36 @@ or in a directory you choose. A menu will pop-up asking whether you would like t
 save or update your dictionary.
 You have two options:
 
-\code{No} (or \code{2}) will not give this function permission to save
-your dictionary to your computer. \code{save.location = "envir"} will
-always return your dictionary as a vector object to \code{R}'s
-global environment
+\itemize{
 
-\code{Yes} (or \code{1}) will give this function permission to
+\item{\code{Yes} (or \code{1}):}
+{Gives this function permission to
 save (or update) your dictionary to a chosen directory.
 If \code{save.location = "envir"}, your file will
-be deleted after closing \code{R} (unless manually saved).
+be deleted after closing \code{R}}
+
+\item{\code{No} (or \code{2}):}
+{Does NOT give this function permission to save
+your dictionary to your computer. \code{save.location = "envir"} will
+always return your dictionary as a vector object to \code{R}'s
+global environment}
+
+}
 
 To save your dictionary file, you can either:
 
-Manually save: use \link{saveRDS} and save using the \code{"*.dictionary"} suffix
+\itemize{
 
-\code{save.location = "choose"}: a file explorer menu will pop-up and a directory
-can be selected
+\item{Manually save:}
+{Use \link{saveRDS} and save using the \code{"*.dictionary"} suffix}
 
-\code{save.location = "path"}: the file will automatically be saved to the directory
-you provide
+\item{\code{save.location = "choose"}:}
+{A file explorer menu will pop-up and a directory can be manually selected}
+
+\item{\code{save.location = "path"}:}
+{The file will automatically be saved to the directory you provide}
+
+}
 
 Note that \code{save.location = "choose"} and \code{save.location = "path"} will
 automatically update your dictionary if there is a file with the same name enter
@@ -89,11 +106,11 @@ your private computer and must either be publicly shared or
 transferred to other computers in order to use them elsewhere.
 If you would like to share a dictionary for others to use, then please submit
 a pull request or post an issue with your dictionary on my GitHub:
-\href{AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}.
+\href{https://github.com/AlexChristensen/SemNetDictionaries}{AlexChristensen/SemNetDictionaries}.
 }
 \examples{
 #create a dictionary
-new.dictionary <- append.dictionary(c("words","are","fun"))
+new.dictionary <- append.dictionary(c("words","are","fun"), save.location = "envir")
 
 }
 \seealso{

@@ -42,7 +42,7 @@ new.dictionary <- append.dictionary(c("words", "are", "fun"))
 load.dictionaries("new")
 
 #load animals and new dictionary
-load.dictionaries(c("animals", "new")) 
+load.dictionaries(c("animals", "new"))
 
 }
 \author{

@@ -31,10 +31,7 @@
 #' }
 #' 
 #' #Make a dictionary
-#' append.dictionary(c("words","are","fun"),
-#' dictionary.name = "example",
-#' save.location = "path",
-#' path = tempdir())
+#' example.dictionary <- append.dictionary(c("words","are","fun"), save.location = "envir")
 #' 
 #' #Dictionary can now be found
 #' find.dictionaries("example")
@@ -55,37 +52,72 @@ find.dictionaries <- function(...)
     #check length of list
     if(length(dictionary)!=0)
     {
-        #path to temporary
-        temp.path <- tempdir()
+        #dictionary vector
+        dict <- vector("character",length = length(dictionary))
         
         #remove any .dictionary if added by user
         for(i in 1:length(dictionary))
-        {dict <- gsub(".dictionary.*","",dictionary[i])}
+        {dict[i] <- gsub(".dictionary.*","",dictionary[i])}
         
         #add dictionary to end of dict.name for data loading
         if(!"dictionary" %in% unlist(strsplit(dict,split="[.]")))
-        {dict.long <- paste(dict,"dictionary","rds",sep=".")}
+        {dict.temp <- paste(dict,"dictionary","rds",sep=".")}
+        
+        #add dictionary to end of dict.name for data loading
+        if(!"dictionary" %in% unlist(strsplit(dict,split="[.]")))
+        {dict.env <- paste(dict,"dictionary",sep=".")}
         
         #initiate temp boolean
         temp <- vector(length=length(dictionary))
         
-        #search computer for dictionaries
-        files <- list.files(temp.path,pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        #search temporary files for dictionaries
+        files <- list.files(tempdir(),pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        
+        #search global environment for dictionaries
+        env.files <- ls(envir=.GlobalEnv)
         
         #grab names of dictionaries
-        name <- vector("character", length = length(files))
+        name <- list()
+        
+        #initialize count
+        count <- 0
+        
+        #search through temp.files
         for(i in 1:length(files))
         {
             #grab only dictonary name
             dict.name <- gsub(".*/", "", files[i])
             
-            if(dict.long %in% dict.name)
+            if(dict.temp %in% dict.name)
             {
+                count <- count + 1
+                
                 #remove dictionary.rds
-                name[i] <- gsub(".dictionary.rds.*","",dict.name)
+                name[[count]] <- gsub(".dictionary.rds.*","",dict.name)
                 
                 #file found in temp
-                temp[i] <- TRUE
+                temp[count] <- TRUE
+            }
+        }
+        
+        #search through env.files
+        for(i in 1:length(env.files))
+        {
+            #grab only dictonary name
+            dict.name <- gsub(".*/", "", env.files[i])
+            
+            if(dict.env %in% dict.name)
+            {
+                count <- count + 1
+                
+                #remove dictionary
+                name[[count]] <- gsub(".dictionary*","",dict.name)
+                
+                #file found in temp
+                temp[count] <- TRUE
+                
+                #add listing of where file is located
+                files <- c(files,"envir")
             }
         }
     }else if(length(dictionary)==0||all(!temp))
@@ -94,23 +126,49 @@ find.dictionaries <- function(...)
         message("Searching for dictionaries...")
         
         #search computer for dictionaries
-        files <- list.files("/Users",pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        files <- list.files(unlist(strsplit(Sys.getenv(),split=" ")$HOMEPATH),pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        
+        #search global environment for dictionaries
+        env.files <- ls(envir=.GlobalEnv)
         
         #grab names of dictionaries
-        name <- vector("character", length = length(files))
+        name <- list()
+        
+        #initialize count
+        count <- length(files)
+        
+        #search through files
         for(i in 1:length(files))
         {
             #grab only dictonary name
             dict.name <- gsub(".*/", "", files[i])
             
             #remove dictionary.rds
-            name[i] <- gsub(".dictionary.rds.*","",dict.name)
+            name[[i]] <- gsub(".dictionary.rds.*","",dict.name)
+        }
+        
+        #identify dictionaries in the global environment
+        env.targets <- grep(".dictionary",env.files)
+        
+        #search through env.files
+        if(length(env.targets)!=0)
+        {
+            for(i in 1:length(env.targets))
+            {
+                count <- count + 1
+                
+                #remove dictionary
+                name[[count]] <- gsub(".dictionary*","",env.files[env.targets[i]])
+                
+                #add listing of where file is located
+                files <- c(files,"envir")
+            }
         }
     }
     
     #results list
     res <- list()
-    res$names <- name
+    res$names <- unlist(name)
     res$files <- files
     
     return(res)

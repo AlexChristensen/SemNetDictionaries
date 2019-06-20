@@ -1,4 +1,10 @@
+Changes in version 0.1.2
+
+o corrected temporary file situation
+
 Changes in version 0.1.1
+
+o added several dictionaries (includes misnomers): fruits (fluency), vegetables (fluency), jobs (fluency), hot (synonyms), and good (synonyms)
 
 o updated documentation
 
