@@ -1,5 +1,8 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
+# How To Install
+devtools::install_github("AlexChristensen/SemNetDictionaries")
+
 # SemNetDictionaries
 Implements dictionaries that can be used in the [SemNetCleaner](https://github.com/AlexChristensen/SemNetCleaner) package. Also includes several functions aimed at facilitating the text cleaning analysis in the [SemNetCleaner](https://github.com/AlexChristensen/SemNetCleaner) package. This package is designed to integrate and update word lists and dictionaries based on each user's individual needs by allowing users to store and save their own dictionaries.
 
