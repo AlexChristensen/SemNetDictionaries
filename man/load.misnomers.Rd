@@ -8,7 +8,7 @@ load.misnomers(misnomer)
 }
 \arguments{
 \item{misnomer}{Character vector.
-Misnomers to load (must be a dictionary in
+misnomers to load (must be a dictionary in
 \code{\link[SemNetDictionaries]{dictionaries}})}
 }
 \value{
@@ -16,7 +16,7 @@ Returns a vector of unique words that have been combined
 and alphabetized from the specified misnomers
 }
 \description{
-A wrapper function to load misnomers into
+DEFUNCT. A wrapper function to load misnomers into
 the 'SemNetCleaner' package. Searches for misnomers in \code{R}'s
  \code{\link{SemNetDictionaries}} package. Outputs a unique word list
 that is combined from all dictionaries entered in the \code{misnomer} argument

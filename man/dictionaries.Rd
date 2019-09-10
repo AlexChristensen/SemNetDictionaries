@@ -14,6 +14,7 @@ A wrapper function to identify all dictionaries included in
 \code{\link{SemNetDictionaries}}
 }
 \examples{
+# List names of dictionaries in 'SemNetDictionaries'
 dictionaries()
 
 }

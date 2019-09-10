@@ -10,8 +10,9 @@ find.dictionaries(...)
 \item{...}{Vector.
 Appendix dictionary files names (if they are known).
 If left empty, the function will search across
-all files for files that end in \code{*.dictionary.rds}.
-This search takes about 30 seconds to complete
+all files for files in folders on your desktop
+that end in \code{*.dictionary.rds}.
+This search takes a few seconds to complete
 (see examples for your computer's exact timing)}
 }
 \value{
@@ -26,22 +27,20 @@ A wrapper function to identify the save location
 of appendix dictionaries from \code{\link[SemNetDictionaries]{append.dictionary}}
 }
 \examples{
-\dontrun{
-
-#No appendix dictionaries found
+# Make a dictionary
+example.dictionary <- append.dictionary(c("words","are","fun"), save.location = "envir")
+ 
+# Dictionary can now be found
+find.dictionaries("example")
+\donttest{
+# No appendix dictionaries found
 find.dictionaries()
 
-#For your computer's timing to complete search
+# For your computer's timing to complete search
 t0 <- Sys.time()
 find.dictionaries()
 Sys.time() - t0
 }
-
-#Make a dictionary
-example.dictionary <- append.dictionary(c("words","are","fun"), save.location = "envir")
-
-#Dictionary can now be found
-find.dictionaries("example")
 
 }
 \seealso{

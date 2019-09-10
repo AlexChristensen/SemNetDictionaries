@@ -29,19 +29,19 @@ Outputs a unique word list that is combined from all dictionaries entered
 in the \code{dictionary} argument
 }
 \examples{
-#find dictionaries to load
+# Find dictionaries to load
 dictionaries()
 
-#load "animals" dictionary
+# Load "animals" dictionary
 load.dictionaries("animals")
 
-#create a dictionary
+# Create a dictionary
 new.dictionary <- append.dictionary(c("words", "are", "fun"))
 
-#load created dictionary
+# Load created dictionary
 load.dictionaries("new")
 
-#load animals and new dictionary
+# Load animals and new dictionary
 load.dictionaries(c("animals", "new"))
 
 }
