@@ -1,7 +1,7 @@
 #' Appendix Dictionary
 #' @description A function designed to create post-hoc dictionaries in the
 #' \code{\link{SemNetDictionaries}} package. This allows for new semantic categories or word lists
-#' to be saved for future use (i.e., your own perosnality dictionary).
+#' to be saved for future use (i.e., your own personal dictionary).
 #' Dictionaries created using this function can either be saved as an R object to your global
 #' environment or as a .rds file on your current computer. Open-source community-derived
 #' dictionaries can be uploaded to and downloaded from
@@ -14,7 +14,7 @@
 #' Name of dictionary to create or add words to.
 #' Defaults to \code{"appendix"}.
 #' Input a name to create or add to an existing dictionary.
-#' This function with automaticaly name files with the \code{"*.dictionary.rds"} suffix
+#' This function with automatically name files with the \code{"*.dictionary.rds"} suffix
 #' 
 #' @param save.location Character.
 #' A choice for where to store appendix dictionary.
@@ -25,8 +25,14 @@
 #' \item{\code{"envir"}:}
 #' {Returns dictionary as a vector object to \code{R}'s global environment}
 #' 
+#' \item{\code{"package"}:}
+#' {Saves dictionary to the package
+#' (see \code{system.file("data",package="SemNetDictionaries")} for location).
+#' Note that this dictionary will be deleted when \code{\link{SemNetDictionaries}}
+#' is updated.}
+#' 
 #' \item{\code{"choose"}:}
-#' {User chooses a directory for more permenant storage. This will
+#' {User chooses a directory for more permanent storage. This will
 #' allow you to use this dictionary in the future}
 #' 
 #' \item{\code{"path"}:}
@@ -40,6 +46,11 @@
 #' @param path Character.
 #' A path to an existing directory.
 #' Only necessary for \code{save.location = "path"}
+#' 
+#' @param textcleaner Boolean.
+#' Argument for skipping asking to save the dictionary twice.
+#' Defaults to \code{FALSE}.
+#' If \code{TRUE}, then asking to save the dictionary will be skipped.
 #' 
 #' @details Appendix dictionaries are useful for storing spelling
 #' definitions that are not available in the \code{\link{SemNetDictionaries}}
@@ -98,7 +109,7 @@
 #' \href{https://github.com/AlexChristensen/SemNetDictionaries}{AlexChristensen/SemNetDictionaries}.
 #' 
 #' @examples
-#' #create a dictionary
+#' # Create a dictionary
 #' new.dictionary <- append.dictionary(c("words","are","fun"), save.location = "envir")
 #' 
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>
@@ -113,8 +124,9 @@
 #Appendix Dictionary
 append.dictionary <- function(...,
                               dictionary.name = "appendix",
-                              save.location = c("envir","choose","path"),
-                              path = NULL)
+                              save.location = c("envir","package","choose","path"),
+                              path = NULL,
+                              textcleaner = FALSE)
 {
     #grab words
     words <- list(...)
@@ -134,8 +146,12 @@ append.dictionary <- function(...,
         
     }else if(save.location != "envir")
     {
-        
-        if(save.location == "choose")
+        if(save.location == "package")
+        {
+            #path to package
+            path <- system.file("Data", package = "SemNetDictionaries")
+            
+        }else if(save.location == "choose")
         {
             #let user select path
             path <- tcltk::tk_choose.dir()
@@ -197,7 +213,9 @@ append.dictionary <- function(...,
         }else if(save.location == "choose")
         {
             #ask if user would like to save dictionary
-            ans <- menu(c("Yes","No"),title="Would you like to update your saved dictionary?")
+            if(!textcleaner)
+            {ans <- menu(c("Yes","No"),title="Would you like to update your saved dictionary?")
+            }else{ans <- 1}
             
             if(ans == 1)
             {
@@ -240,7 +258,9 @@ append.dictionary <- function(...,
         }else if(save.location == "choose")
         {
             #ask if user would like to save dictionary
-            ans <- menu(c("Yes","No"),title="Would you like to save your appendix dictionary?")
+            if(!textcleaner)
+            {ans <- menu(c("Yes","No"),title="Would you like to save your appendix dictionary?")
+            }else{ans <- 1}
             
             if(ans == 1)
             {

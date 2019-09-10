@@ -1,50 +1,50 @@
-#' Load Misnomers
-#' @description DEFUNCT. A wrapper function to load misnomers into
-#' the 'SemNetCleaner' package. Searches for misnomers in \code{R}'s
+#' Load Monikers
+#' @description A wrapper function to load monikers into
+#' the 'SemNetCleaner' package. Searches for monikers in \code{R}'s
 #'  \code{\link{SemNetDictionaries}} package. Outputs a unique word list
-#' that is combined from all dictionaries entered in the \code{misnomer} argument
+#' that is combined from all dictionaries entered in the \code{moniker} argument
 #' 
-#' @param misnomer Character vector.
-#' misnomers to load (must be a dictionary in
+#' @param moniker Character vector.
+#' monikers to load (must be a dictionary in
 #' \code{\link[SemNetDictionaries]{dictionaries}})
 #' 
 #' @return Returns a vector of unique words that have been combined
-#' and alphabetized from the specified misnomers
+#' and alphabetized from the specified monikers
 #' 
 #' @examples 
 #' #find dictionaries to load
 #' dictionaries()
 #' 
-#' #load "animals" misnomers
-#' load.misnomers("animals")
+#' #load "animals" monikers
+#' load.monikers("animals")
 #' 
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>
 #' 
 #' @export
-#Load misnomer Function
-load.misnomers <- function (misnomer)
+#Load moniker Function
+load.monikers <- function (moniker)
 {
     #set in case of corpus being used
-    if(length(misnomer)>10)
-    {misn.list <- list(misnomer)
+    if(length(moniker)>10)
+    {misn.list <- list(moniker)
     }else{
         
-        #initialize misnomer list
+        #initialize moniker list
         misn.list <- list()
         
         #look in 'SemNetDictionaries'
         sndict <- SemNetDictionaries::dictionaries()
         
-        if(all(misnomer %in% sndict))
+        if(all(moniker %in% sndict))
         {
-            for(i in 1:length(misnomer))
+            for(i in 1:length(moniker))
             {
-                #remove any .misnomer if added by user
-                misn <- gsub(".misnomer.*","",misnomer[i])
+                #remove any .moniker if added by user
+                misn <- gsub(".moniker.*","",moniker[i])
                 
                 #add dictionary to end of misn.name for data loading
-                if(!"misnomer" %in% misn)
-                {misn.long <- paste(misn,"misnomer",sep=".")}
+                if(!"moniker" %in% misn)
+                {misn.long <- paste(misn,"moniker",sep=".")}
                 
                 #check if dictionary is in 'SemNetDictionaries' or on computer
                 if(misn %in% sndict)

@@ -1,7 +1,7 @@
 #Animals Dictionary----
 #' Animals Dictionary
 #'
-#' A database of possible animals responses (\emph{n} = 1022)
+#' A database of possible animals responses (\emph{n} = 1021)
 #' 
 #' To add additional animals to the dictionary, please make an
 #' appendix dictionary (\code{\link[SemNetDictionaries]{append.dictionary}})
@@ -12,7 +12,7 @@
 #' 
 #' @usage data(animals.dictionary)
 #' 
-#' @format animals.dictionary (vector, length = 1022)
+#' @format animals.dictionary (vector, length = 1021)
 #' 
 #' @keywords datasets
 #' 

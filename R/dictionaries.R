@@ -5,6 +5,7 @@
 #' @return Returns the names of dictionaries in \code{\link{SemNetDictionaries}}
 #' 
 #' @examples
+#' # List names of dictionaries in 'SemNetDictionaries'
 #' dictionaries()
 #' 
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>

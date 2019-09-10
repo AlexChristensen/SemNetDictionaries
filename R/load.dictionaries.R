@@ -19,19 +19,19 @@
 #' and alphabetized from the specified dictionaries
 #' 
 #' @examples 
-#' #find dictionaries to load
+#' # Find dictionaries to load
 #' dictionaries()
 #' 
-#' #load "animals" dictionary
+#' # Load "animals" dictionary
 #' load.dictionaries("animals")
 #' 
-#' #create a dictionary
+#' # Create a dictionary
 #' new.dictionary <- append.dictionary(c("words", "are", "fun"))
 #' 
-#' #load created dictionary
+#' # Load created dictionary
 #' load.dictionaries("new")
 #' 
-#' #load animals and new dictionary
+#' # Load animals and new dictionary
 #' load.dictionaries(c("animals", "new"))
 #' 
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>
@@ -54,7 +54,10 @@ load.dictionaries <- function (dictionary)
         sndict <- SemNetDictionaries::dictionaries()
         #grab dictonaries from environment and remove ".dictionary"
         envdict <- gsub(".dictionary","",ls(envir=.GlobalEnv)[grep(".dictionary",ls(envir=.GlobalEnv))])
-        snenvdict <- c(sndict,envdict)
+        #also look in package folder
+        pkgdict <- gsub(".dictionary.rds","",list.files(system.file("Data", package = "SemNetDictionaries")))[grep(".dictionary",list.files(system.file("Data", package = "SemNetDictionaries")))]
+        
+        snenvdict <- c(sndict,envdict,pkgdict)
         
         if(all(dictionary %in% snenvdict))
         {
@@ -77,6 +80,10 @@ load.dictionaries <- function (dictionary)
                 {
                     #get dictionary from environment
                     dict.list[[i]] <- get(dict.long)
+                }else if(dict %in% pkgdict)
+                {
+                    #get dictionary from package
+                    dict.list[[i]] <- readRDS(paste(system.file("Data", package = "SemNetDictionaries"),"/",dict.long,".rds",sep=""))
                 }
             }
         }else{

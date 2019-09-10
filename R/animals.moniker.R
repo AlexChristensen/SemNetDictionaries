@@ -1,24 +1,22 @@
-#Animals Misnomer----
-#' Animals Misnomer
+#Animals Moniker----
+#' Animals Moniker
 #'
-#' DEFUNCT. Temporary for CRAN checks
-#' 
 #' A database of possible animals monikers and common spelling errors
 #' 
 #' To add additional animals monikers to the database, please submit a pull
 #' request or issue to \href{https://github.com/AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}
 #' 
-#' @name animals.misnomer
+#' @name animals.moniker
 #' 
 #' @docType data
 #' 
-#' @usage data(animals.misnomer)
+#' @usage data(animals.moniker)
 #' 
-#' @format animals.misnomer (list, length = 207)
+#' @format animals.moniker (list, length = 207)
 #' 
 #' @keywords datasets
 #' 
 #' @examples 
-#' data("animals.misnomer")
+#' data("animals.moniker")
 NULL
 #----
