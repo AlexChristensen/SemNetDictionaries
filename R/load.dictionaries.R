@@ -130,7 +130,7 @@ load.dictionaries <- function (dictionary)
     }
     
     #combine into vector and alphabetize
-    full.dict <- sort(unlist(dict.list))
+    full.dict <- unique(sort(unlist(dict.list)))
     
     return(full.dict)
 }

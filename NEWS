@@ -6,6 +6,8 @@ o updated 'animals.dictionary'
 
 o added argument for 'append.dictionary' to bypass double query in 'textcleaner'
 
+o bug fixes
+
 
 Changes in version 0.1.3
 
