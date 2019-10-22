@@ -4,10 +4,10 @@
 \alias{load.dictionaries}
 \title{Load Dictionaries}
 \usage{
-load.dictionaries(dictionary)
+load.dictionaries(...)
 }
 \arguments{
-\item{dictionary}{Character vector.
+\item{...}{Character.
 Dictionaries to load
 
 Dictionaries in your global environment
@@ -36,13 +36,22 @@ dictionaries()
 load.dictionaries("animals")
 
 # Create a dictionary
-new.dictionary <- append.dictionary(c("words", "are", "fun"))
+new.dictionary <- append.dictionary("words", "are", "fun")
 
 # Load created dictionary
 load.dictionaries("new")
 
 # Load animals and new dictionary
-load.dictionaries(c("animals", "new"))
+load.dictionaries("animals", "new")
+
+# Single letter dictionary
+load.dictionaries("d")
+
+# Multiple letters dictionary
+load.dictionaries("a", "d")
+
+# Category and letters dictionary
+load.dictionaries("animals", "a")
 
 }
 \author{

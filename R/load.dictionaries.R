@@ -5,7 +5,7 @@
 #' Outputs a unique word list that is combined from all dictionaries entered 
 #' in the \code{dictionary} argument
 #' 
-#' @param dictionary Character vector.
+#' @param ... Character.
 #' Dictionaries to load
 #' 
 #' Dictionaries in your global environment
@@ -26,32 +26,48 @@
 #' load.dictionaries("animals")
 #' 
 #' # Create a dictionary
-#' new.dictionary <- append.dictionary(c("words", "are", "fun"))
+#' new.dictionary <- append.dictionary("words", "are", "fun")
 #' 
 #' # Load created dictionary
 #' load.dictionaries("new")
 #' 
 #' # Load animals and new dictionary
-#' load.dictionaries(c("animals", "new"))
+#' load.dictionaries("animals", "new")
+#' 
+#' # Single letter dictionary
+#' load.dictionaries("d")
+#' 
+#' # Multiple letters dictionary
+#' load.dictionaries("a", "d")
+#' 
+#' # Category and letters dictionary
+#' load.dictionaries("animals", "a")
 #' 
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>
 #' 
 #' @importFrom utils data
+#' @importFrom stats na.omit
 #' 
 #' @export
 #Load Dictionary Function
-load.dictionaries <- function (dictionary)
+load.dictionaries <- function (...)
 {
+    # list dictionaries
+    dictionary <- list(...)
+    
     #set in case of corpus being used
     if(length(dictionary)>10)
-    {dict.list <- list(dictionary)
+    {dict.list <- tolower(unlist(dictionary))
     }else{
+        
+        # convert dictionaries to vector
+        dictionary <- tolower(unlist(dictionary))
         
         #initialize dictionary list
         dict.list <- list()
         
         #first look in 'SemNetDictionaries' and environment dictionaries
-        sndict <- SemNetDictionaries::dictionaries()
+        sndict <- SemNetDictionaries::dictionaries(TRUE)
         #grab dictonaries from environment and remove ".dictionary"
         envdict <- gsub(".dictionary","",ls(envir=.GlobalEnv)[grep(".dictionary",ls(envir=.GlobalEnv))])
         #also look in package folder
@@ -123,10 +139,28 @@ load.dictionaries <- function (dictionary)
                     #get dictionary from environment
                     dict.list[[i]] <- get(dict.long)
                 
-                }else{message(paste(dict,"was not found in existing dictionaries.",sep=" "))}
+                }else if(!tolower(dict) %in% letters)
+                {message(paste(dict,"was not found in existing dictionaries.",sep=" "))}
             }
         }
         
+    }
+    
+    #single letter dictionaries
+    if(any(tolower(dictionary) %in% letters))
+    {
+        #letter list
+        let.list <- list()
+        
+        #target letter(s)
+        target.let <- na.omit(match(letters,tolower(dictionary)))
+        
+        #identify target letter(s)
+        for(j in 1:length(target.let))
+        {let.list[[j]] <- SemNetDictionaries::general.dictionary[grep(paste("^",tolower(dictionary)[target.let[j]],sep=""), SemNetDictionaries::general.dictionary)]}
+        
+        #unlist and add to dict.list
+        dict.list[[i+1]] <- sort(unique(unlist(let.list)))
     }
     
     #combine into vector and alphabetize

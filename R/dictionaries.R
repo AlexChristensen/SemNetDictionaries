@@ -2,6 +2,10 @@
 #' @description A wrapper function to identify all dictionaries included in 
 #' \code{\link{SemNetDictionaries}}
 #' 
+#' @param quiet Boolean.
+#' Determines whether the return should be quiet (does not print dictionaries).
+#' Defaults to \code{FALSE}
+#' 
 #' @return Returns the names of dictionaries in \code{\link{SemNetDictionaries}}
 #' 
 #' @examples
@@ -15,8 +19,13 @@
 #' 
 #' @export
 #Find Dictionaries
-dictionaries <- function ()
+dictionaries <- function (quiet)
 {
+    #missing argument
+    if(missing(quiet))
+    {quiet <- FALSE
+    }else{quiet <- TRUE}
+    
     #grab dictionary names
     data.files <- readRDS(system.file("data","Rdata.rds",package="SemNetDictionaries"))
     
@@ -26,6 +35,16 @@ dictionaries <- function ()
     #target dictionarys
     dict.names <- dicts[which(is.na(match(data.files,dicts)))]
     
-    return(dict.names)
+    if(!quiet)
+    {
+        #print dictionary names to user
+        print(dict.names)
+        
+        #message for single letter dictionaries
+        message('Single letter dictionaries can also be used (e.g., "f")')
+        
+        #suppress return
+        invisible(dict.names)
+    }else{return(dict.names)}
 }
 #----

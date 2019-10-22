@@ -1,25 +1,32 @@
+Changes in version 0.1.5
+
+o `load.dictionaries` will load single letter dictionaries from `general.dictionary`
+
+o `load.dictionaries` will now accept dictionaries without being specified as a vector
+
+
 Changes in version 0.1.4
 
-o bug fix in 'find.dictionaries'
+o bug fix in `find.dictionaries`
 
 o updated 'animals.dictionary'
 
-o added argument for 'append.dictionary' to bypass double query in 'textcleaner'
+o added argument for `append.dictionary` to bypass double query in `textcleaner`
 
 o bug fixes
 
 
 Changes in version 0.1.3
 
-o speeded up broad 'find.dictionaries' search
+o speeded up broad `find.dictionaries` search
 
-o fixed bug in 'find.dictionaries' function
+o fixed bug in `find.dictionaries` function
 
-o updated 'general.dictionary'
+o updated `general.dictionary`
 
 o updated citation
 
-o changed then name of all 'misnomer' glossaries to 'moniker' glossaries ('load.misnomers' changed to 'load.monikers')
+o changed then name of all 'misnomer' glossaries to 'moniker' glossaries (`load.misnomers` changed to `load.monikers`)
 
 
 Changes in version 0.1.2
@@ -35,20 +42,20 @@ o updated documentation
 
 o updated 'animals.dictionary' data
 
-o 'append.dictionary' no longer stores dictionaries in temporary files. Instead, dictionaries are output as a vector object in R's global environment or user is prompted to save the dictionary to their computer
+o `append.dictionary` no longer stores dictionaries in temporary files. Instead, dictionaries are output as a vector object in R's global environment or user is prompted to save the dictionary to their computer
 
 
 Changes in version 0.1.0
 
 o 'SemNetDictionaries' documentation for the 'SemNetDictionaries' package
 
-o 'load.dictionaries' wrapper function for loading dictionaries into the 'SemNetCleaner' package
+o `load.dictionaries` wrapper function for loading dictionaries into the 'SemNetCleaner' package
 
-o 'find.dictionaries' function searches for and finds the names and paths of dictionaries stored on your computer
+o `find.dictionaries` function searches for and finds the names and paths of dictionaries stored on your computer
 
-o 'dictionaries' function for dictionaries included in 'SemNetDictionaries'
+o `dictionaries` function for dictionaries included in 'SemNetDictionaries'
 
-o 'append.dictionary' function allows you to create and store your own dictionaries
+o `append.dictionary` function allows you to create and store your own dictionaries
 
 o 'animals.dictionary' data for spell-checking animals
 

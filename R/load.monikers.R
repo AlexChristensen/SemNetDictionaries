@@ -33,7 +33,7 @@ load.monikers <- function (moniker)
         misn.list <- list()
         
         #look in 'SemNetDictionaries'
-        sndict <- SemNetDictionaries::dictionaries()
+        sndict <- SemNetDictionaries::dictionaries(TRUE)
         
         if(all(moniker %in% sndict))
         {

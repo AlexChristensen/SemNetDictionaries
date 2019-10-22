@@ -4,7 +4,12 @@
 \alias{dictionaries}
 \title{List Names of Dictionaries in 'SemNetDictionaries'}
 \usage{
-dictionaries()
+dictionaries(quiet)
+}
+\arguments{
+\item{quiet}{Boolean.
+Determines whether the return should be quiet (does not print dictionaries).
+Defaults to \code{FALSE}}
 }
 \value{
 Returns the names of dictionaries in \code{\link{SemNetDictionaries}}
