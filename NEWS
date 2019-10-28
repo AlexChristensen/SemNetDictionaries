@@ -4,6 +4,10 @@ o `load.dictionaries` will load single letter dictionaries from `general.diction
 
 o `load.dictionaries` will now accept dictionaries without being specified as a vector
 
+o updated citation (PsyArXiv)
+
+o added vignette for appendix dictionaries
+
 
 Changes in version 0.1.4
 

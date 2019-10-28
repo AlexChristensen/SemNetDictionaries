@@ -1,0 +1,90 @@
+---
+title: "Appendix Dictionaries"
+author: "Alexander Christensen"
+date: "10/27/2019"
+output: html_document
+bibliography: Christensen_General_Library.bib
+csl: apa.csl
+vignette: >
+  %\VignetteIndexEntry{Appendix_Dictionaries}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(htmlTable)
+```
+
+### Vignette taken directly from @christensen2019semna
+
+The *SemNetDictionaries* package contains several functions that facilitate the management and loading of dictionaries into *SemNetCleaner*. These dictionaries are used to spell-check and auto-correct the raw verbal fluency data in the preprocessing stage. In addition, this package includes a function that allows the user to create their own custom dictionaries, enabling them to save their own dictionaries for future use.
+
+## Pre-defined dictionaries
+The dictionaries contained in the package currently include verbal fluency categories of *animals*, *fruits*, *vegetables*, and *jobs* as well as synonym categories of *hot* and *good* (Table 1). A *general* dictionary also accommodates phonological fluency tasks with the use of single letters (e.g., words that start with \`f\'). For each category and synonym dictionary, there is an accompanying moniker glossary that is used to automatically convert monikers (e.g., *bear cat*) and common misspellings (e.g., *binterong*) into a homogeneous response (e.g., *binturong*). These categories were included because the authors have data for them; however, we note that there are other possible verbal fluency categories.
+
+```{r tab1, echo = FALSE, eval = TRUE, comment = NA, warning = FALSE}
+output <- matrix(c("animals", "1,021", "Category",
+                   "fruits", "488", "Category",
+                   "general", "370,103", "All-purpose",
+                   "good", "284", "Synonym",
+                   "hot", "281", "Synonym",
+                   "jobs", "1,471", "Category",
+                   "vegetables", "284", "Category"),
+                 ncol = 3, byrow = TRUE)
+
+
+htmlTable(output,
+          header = c("Dictionary", "Entries", "Type"),
+          caption = "Table 1. Dictionaries in SemNetDictionaries")
+```
+
+The development of these category and synonym dictionaries included searching \href{https://www.google.com}{\textit{Google}} for lists of category exemplars and \href{https://www.thesaurus.com}{Thesaurus.com} for synonyms. Their development was also aided by responses from several hundred participants, who generated verbal fluency responses for some of these categories [@christensen2018remotely], as well as responses from other unpublished data. Finally, the general dictionary was added for phonological fluency tasks and generic spell-checking purposes. This dictionary was retrieved from the *dwyl* Github repository for English words: \href{https://github.com/dwyl/english-words}{https://github.com/dwyl/english-words}. To load some of these dictionaries, the following code can be used:
+
+```{r Load dictionary, echo = TRUE, eval = FALSE, comment = NA, warning = FALSE}
+# Check for available dictionaries
+dictionaries()
+# Load 'animals' dictionary
+load.dictionaries("animals")
+# Load all words starting with 'f'
+load.dictionaries("f")
+# Load multiple dictionaries
+load.dictionaries("fruits", "vegetables")
+```
+
+The `load.dictionaries` function will load as many dictionaries as are entered. The function will alphabetically sort and remove any duplicates found between the dictionaries. Thus, it returns an alphabetized vector the length of the unique words in the dictionaries.
+
+## Custom dictionaries
+A notable feature of the *SemNetDictionaries* package is that users can define their own dictionaries using the `append.dictionary` function. With this function, users can create their own custom dictionaries or append pre-defined dictionaries so that they can be used for future data cleaning and preprocessing. To create your own dictionary, the following code can be used:
+
+```{r Create dictionary, echo = TRUE, eval = FALSE, comment = NA, warning = FALSE}
+# Create a custom dictionary
+append.dictionary("your", "words", "here",
+                  "in", "quotations", "and",
+                  "separated", "by", "commas",
+                  dictionary.name = "example",
+                  save.location = "choose")
+```
+
+All words that are entered in quotations and separated by commas will be input into a new custom dictionary. The name of the dictionary can be defined with the `dictionary.name` argument (e.g., `dictionary.name = "example"`). All dictionaries that are saved using this function have a specific file suffix (`*.dictionary.rds`), which allows the dictionaries to be found by the function `find.dictionaries()`. A user can also append a pre-defined dictionary (e.g., `animals.dictionary`) by including the dictionary name in the function:
+
+```{r Append animals dictionary, echo = TRUE, eval = FALSE, comment = NA, warning = FALSE}
+# Append a pre-defined dictionary
+append.dictionary(animals.dictionary,
+                  "tasselled wobbegong",
+                  dictionary.name = "new.animals",
+                  save.location = "choose")
+```
+
+Appending a pre-defined dictionary does not overwrite it; instead, the user must save this dictionary somewhere on their computer (e.g., `save.location = "choose"`). Dictionaries from the *SemNetDictionaries* package and dictionaries stored using the `append.dictionary` function can be integrated into the *SemNetCleaner* package for preprocessing (we describe how this is done in the next section).
+
+\newpage
+
+# References
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup
