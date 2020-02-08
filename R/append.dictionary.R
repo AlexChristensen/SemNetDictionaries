@@ -121,7 +121,8 @@
 #' @importFrom utils menu
 #' 
 #' @export
-#Appendix Dictionary
+# Appendix Dictionary
+# Updated 07.02.2020
 append.dictionary <- function(...,
                               dictionary.name = "appendix",
                               save.location = c("envir","package","choose","path"),
@@ -220,7 +221,7 @@ append.dictionary <- function(...,
             if(ans == 1)
             {
                 #save as updated appendix dictionary
-                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")))
+                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
                 
                 #let user know that the dictionary has been updated
                 message(paste(append.data," has been updated.",sep=""))
@@ -234,7 +235,7 @@ append.dictionary <- function(...,
         }else if(save.location == "path")
         {
             #then save as updated appendix dictionary
-            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")))
+            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
             
             #let user know that the dictionary has been updated
             message(paste(append.data," has been updated.",sep=""))
@@ -265,7 +266,7 @@ append.dictionary <- function(...,
             if(ans == 1)
             {
                 #save as new appendix dictionary
-                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")))
+                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
                 
                 #let user know that a new file has been saved
                 message(paste("A new dictionary file was created in:\n",
@@ -280,7 +281,7 @@ append.dictionary <- function(...,
         }else if(save.location == "path")
         {
             #save as new appendix dictionary
-            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")))
+            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
             
             #let user know that a new file has been saved
             message(paste("A new dictionary file was created in:\n",
