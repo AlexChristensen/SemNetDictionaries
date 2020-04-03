@@ -50,18 +50,16 @@
 #' 
 #' @export
 #Load Dictionary Function
+# Updated 03.04.2020
 load.dictionaries <- function (...)
 {
     # list dictionaries
-    dictionary <- list(...)
+    dictionary <- unlist(list(...))
     
     #set in case of corpus being used
     if(length(dictionary)>10)
     {dict.list <- tolower(unlist(dictionary))
     }else{
-        
-        # convert dictionaries to vector
-        dictionary <- tolower(unlist(dictionary))
         
         #initialize dictionary list
         dict.list <- list()

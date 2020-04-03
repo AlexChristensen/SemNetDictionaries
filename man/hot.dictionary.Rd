@@ -4,7 +4,9 @@
 \name{hot.dictionary}
 \alias{hot.dictionary}
 \title{'Hot' Synonyms Dictionary}
-\format{hot.dictionary (vector, length = 281)}
+\format{
+hot.dictionary (vector, length = 281)
+}
 \usage{
 data(hot.dictionary)
 }

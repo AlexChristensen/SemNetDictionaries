@@ -4,7 +4,9 @@
 \name{animals.dictionary}
 \alias{animals.dictionary}
 \title{Animals Dictionary}
-\format{animals.dictionary (vector, length = 1021)}
+\format{
+animals.dictionary (vector, length = 1021)
+}
 \usage{
 data(animals.dictionary)
 }

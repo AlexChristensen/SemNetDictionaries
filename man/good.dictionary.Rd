@@ -4,7 +4,9 @@
 \name{good.dictionary}
 \alias{good.dictionary}
 \title{'Good' Synonyms Dictionary}
-\format{good.dictionary (vector, length = 284)}
+\format{
+good.dictionary (vector, length = 284)
+}
 \usage{
 data(good.dictionary)
 }

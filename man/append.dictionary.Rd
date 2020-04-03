@@ -4,9 +4,13 @@
 \alias{append.dictionary}
 \title{Appendix Dictionary}
 \usage{
-append.dictionary(..., dictionary.name = "appendix",
-  save.location = c("envir", "package", "choose", "path"), path = NULL,
-  textcleaner = FALSE)
+append.dictionary(
+  ...,
+  dictionary.name = "appendix",
+  save.location = c("envir", "package", "choose", "path"),
+  path = NULL,
+  textcleaner = FALSE
+)
 }
 \arguments{
 \item{...}{Character vector.

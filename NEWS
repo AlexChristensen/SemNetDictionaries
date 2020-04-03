@@ -1,3 +1,10 @@
+Changes in version 0.1.6
+
+o UPDATE: `find.dictionaries` searches desktop and downloads folders
+
+o FIX: `load.dictionaries` can handle more than one dictionary (fixed vector bug)
+
+
 Changes in version 0.1.5
 
 o `load.dictionaries` will load single letter dictionaries from `general.dictionary`

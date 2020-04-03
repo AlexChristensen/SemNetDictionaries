@@ -4,7 +4,7 @@
 \alias{find.dictionaries}
 \title{Finds Names and Locations of Appendix Dictionaries}
 \usage{
-find.dictionaries(...)
+find.dictionaries(..., add.path = NULL)
 }
 \arguments{
 \item{...}{Vector.
@@ -14,6 +14,11 @@ all files for files in folders on your desktop
 that end in \code{*.dictionary.rds}.
 This search takes a few seconds to complete
 (see examples for your computer's exact timing)}
+
+\item{add.path}{Character.
+Path to additional dictionaries to be found.
+DOES NOT search recursively (through all folders in path)
+to avoid time intensive search}
 }
 \value{
 \item{names}{Returns the names of the appendix dictionary file(s) found on your computer}

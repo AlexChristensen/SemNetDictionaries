@@ -121,8 +121,7 @@
 #' @importFrom utils menu
 #' 
 #' @export
-# Appendix Dictionary
-# Updated 07.02.2020
+#Appendix Dictionary
 append.dictionary <- function(...,
                               dictionary.name = "appendix",
                               save.location = c("envir","package","choose","path"),

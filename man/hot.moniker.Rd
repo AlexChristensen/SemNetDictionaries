@@ -4,7 +4,9 @@
 \name{hot.moniker}
 \alias{hot.moniker}
 \title{Hot Moniker}
-\format{hot.moniker (list, length = 15)}
+\format{
+hot.moniker (list, length = 15)
+}
 \usage{
 data(hot.moniker)
 }

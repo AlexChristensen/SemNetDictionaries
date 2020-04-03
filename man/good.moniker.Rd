@@ -4,7 +4,9 @@
 \name{good.moniker}
 \alias{good.moniker}
 \title{'Good' Moniker}
-\format{good.moniker (list, length = 4)}
+\format{
+good.moniker (list, length = 4)
+}
 \usage{
 data(good.moniker)
 }

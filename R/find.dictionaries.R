@@ -10,6 +10,10 @@
 #' This search takes a few seconds to complete
 #' (see examples for your computer's exact timing)
 #' 
+#' @param add.path Character.
+#' Path to additional dictionaries to be found.
+#' DOES NOT search recursively (through all folders in path)
+#' to avoid time intensive search
 #' 
 #' @return 
 #' 
@@ -43,7 +47,8 @@
 #' 
 #' @export
 #Find Dictionaries
-find.dictionaries <- function(...)
+# Updated 03.04.2020
+find.dictionaries <- function(..., add.path = NULL)
 {
     #grab dictionary list
     dictionary <- unlist(list(...))
@@ -73,7 +78,8 @@ find.dictionaries <- function(...)
         data.files <- unname(unlist(readRDS(system.file("data","Rdata.rds",package="SemNetDictionaries"))))
         
         #search temporary files for dictionaries
-        files <- list.files(tempdir(),pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        temp.files <- list.files(tempdir(),pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        temp.files <- gsub("/", "\\\\", temp.files)
         
         #search global environment for dictionaries
         env.files <- ls(envir=environment())
@@ -84,13 +90,13 @@ find.dictionaries <- function(...)
         #initialize count
         count <- 0
         
-        if(length(files) > 0)
+        if(length(temp.files) > 0)
         {
             #search through temp.files
-            for(i in 1:length(files))
+            for(i in 1:length(temp.files))
             {
                 #grab only dictonary name
-                dict.name <- gsub(".*/", "", files[i])
+                dict.name <- gsub(".*\\\\", "", temp.files[i])
                 
                 if(dict.temp %in% dict.name)
                 {
@@ -121,7 +127,7 @@ find.dictionaries <- function(...)
                     temp[count] <- TRUE
                     
                     #add listing of where file is located
-                    files <- c(files,"package")
+                    files <- c(temp.files,"package")
                 }
             }
         }
@@ -130,7 +136,7 @@ find.dictionaries <- function(...)
         for(i in 1:length(env.files))
         {
             #grab only dictonary name
-            dict.name <- gsub(".*/", "", env.files[i])
+            dict.name <- gsub(".*\\\\", "", env.files[i])
             
             if(dict.name %in% dict.env)
             {
@@ -147,25 +153,32 @@ find.dictionaries <- function(...)
             }
         }
         
-    }else if(length(dictionary)==0||all(!temp))
+    }
+    
+    if(length(dictionary) == 0 || all(!temp))
     {
         #let user know that search is happening
         message("Searching for dictionaries...")
         
         #grab dictionary names in 'SemNetDictionaries'
-        data.files <- unname(unlist(readRDS(system.file("data","Rdata.rds",package="SemNetDictionaries"))))
+        files <- unname(unlist(readRDS(system.file("data","Rdata.rds",package="SemNetDictionaries"))))
         
         #dictionaries in 'SemNetDictionaries'
-        dicts <- data.files[grep(".dictionary",data.files)]
+        files <- files[grep(".dictionary",files)]
         
         #add 'SemNetDictionaries' names
-        name <- as.vector(gsub(".dictionary", "", dicts), mode = "list")
+        name <- as.vector(gsub(".dictionary", "", files), mode = "list")
         
         #add 'SemNetDictionaries' files
-        files <- rep("package", length(name))
+        dicts <- rep("package", length(name))
         
         #search computer for dictionaries
         desk.files <- list.files(file.path(Sys.getenv("USERPROFILE"),"Desktop"),pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        desk.files <- gsub("/", "\\\\", desk.files)
+        
+        #search through downloads
+        down.files <- list.files(file.path(Sys.getenv("USERPROFILE"),"Downloads"),pattern=".dictionary.rds",full.names=TRUE,recursive = TRUE)
+        down.files <- gsub("/", "\\\\", down.files)
         
         #search global environment for dictionaries
         env.files <- ls(envir=environment())
@@ -173,7 +186,7 @@ find.dictionaries <- function(...)
         #initialize count
         count <- length(dicts)
         
-        #search through files
+        #search through desktop files
         if(length(desk.files)!=0)
         {
             for(i in 1:length(desk.files))
@@ -182,7 +195,7 @@ find.dictionaries <- function(...)
                 count <- count + 1
                 
                 #grab only dictonary name
-                dict.name <- gsub(".*/", "", desk.files[i])
+                dict.name <- gsub(".*\\\\", "", desk.files[i])
                 
                 #remove dictionary.rds
                 name[[count]] <- gsub(".dictionary.rds.*","",dict.name)
@@ -192,10 +205,29 @@ find.dictionaries <- function(...)
             }
         }
         
+        #search through downloads files
+        if(length(down.files)!=0)
+        {
+            for(i in 1:length(down.files))
+            {
+                #initialize count
+                count <- count + 1
+                
+                #grab only dictonary name
+                dict.name <- gsub(".*\\\\", "", down.files[i])
+                
+                #remove dictionary.rds
+                name[[count]] <- gsub(".dictionary.rds.*","",dict.name)
+                
+                #add listing of where file is located
+                files <- c(files, down.files[i])
+            }
+        }
+        
         #identify dictionaries in the global environment
         env.targets <- grep(".dictionary",env.files)
         
-        #search through env.files
+        #search through environment files
         if(length(env.targets)!=0)
         {
             for(i in 1:length(env.targets))
@@ -209,6 +241,37 @@ find.dictionaries <- function(...)
                 #add listing of where file is located
                 files <- c(files,"envir")
             }
+        }
+        
+        #search additional path
+        if(!is.null(add.path))
+        {
+            if(dir.exists(add.path))
+            {
+                #search through path
+                path.files <- list.files(add.path,pattern=".dictionary.rds",full.names=TRUE,recursive = FALSE)
+                path.files <- gsub("/", "\\\\", path.files)
+                
+                #search through additional path files
+                if(length(path.files)!=0)
+                {
+                    for(i in 1:length(path.files))
+                    {
+                        #initialize count
+                        count <- count + 1
+                        
+                        #grab only dictonary name
+                        dict.name <- gsub(".*\\\\", "", path.files[i])
+                        
+                        #remove dictionary.rds
+                        name[[count]] <- gsub(".dictionary.rds.*","",dict.name)
+                        
+                        #add listing of where file is located
+                        files <- c(files, path.files[i])
+                    }
+                }
+                
+            }else{stop("find.dictionaries(): Additional path does not exist")}
         }
     }
     

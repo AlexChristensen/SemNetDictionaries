@@ -4,7 +4,9 @@
 \name{general.dictionary}
 \alias{general.dictionary}
 \title{General Dictionary}
-\format{general.dictionary (vector, length = 370103)}
+\format{
+general.dictionary (vector, length = 370103)
+}
 \usage{
 data(general.dictionary)
 }

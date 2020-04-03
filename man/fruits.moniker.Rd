@@ -4,7 +4,9 @@
 \name{fruits.moniker}
 \alias{fruits.moniker}
 \title{Fruits Moniker}
-\format{fruits.moniker (list, length = 39)}
+\format{
+fruits.moniker (list, length = 39)
+}
 \usage{
 data(fruits.moniker)
 }
