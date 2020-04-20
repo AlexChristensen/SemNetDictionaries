@@ -4,12 +4,17 @@
 \alias{load.monikers}
 \title{Load Monikers}
 \usage{
-load.monikers(moniker)
+load.monikers(moniker, vector = TRUE)
 }
 \arguments{
 \item{moniker}{Character vector.
 monikers to load (must be a dictionary in
 \code{\link[SemNetDictionaries]{dictionaries}})}
+
+\item{vector}{Boolean.
+Should output be a vector? If \code{FALSE},
+then output is a list.
+Defaults to \code{TRUE}}
 }
 \value{
 Returns a vector of unique words that have been combined

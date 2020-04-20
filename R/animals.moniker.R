@@ -12,7 +12,7 @@
 #' 
 #' @usage data(animals.moniker)
 #' 
-#' @format animals.moniker (list, length = 207)
+#' @format animals.moniker (list, length = 236)
 #' 
 #' @keywords datasets
 #' 

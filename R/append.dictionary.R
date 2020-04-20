@@ -25,11 +25,9 @@
 #' \item{\code{"envir"}:}
 #' {Returns dictionary as a vector object to \code{R}'s global environment}
 #' 
-#' \item{\code{"package"}:}
-#' {Saves dictionary to the package
-#' (see \code{system.file("data",package="SemNetDictionaries")} for location).
-#' Note that this dictionary will be deleted when \code{\link{SemNetDictionaries}}
-#' is updated.}
+#' \item{\code{"wd"}:}
+#' {Saves dictionary to working directory. Useful for storing dictionaries
+#' alongside projects}
 #' 
 #' \item{\code{"choose"}:}
 #' {User chooses a directory for more permanent storage. This will
@@ -51,6 +49,10 @@
 #' Argument for skipping asking to save the dictionary twice.
 #' Defaults to \code{FALSE}.
 #' If \code{TRUE}, then asking to save the dictionary will be skipped.
+#' 
+#' @param package Boolean.
+#' Argument not meant for user use.
+#' Allows me to update the package's dictionaries efficiently
 #' 
 #' @details Appendix dictionaries are useful for storing spelling
 #' definitions that are not available in the \code{\link{SemNetDictionaries}}
@@ -124,12 +126,59 @@
 #Appendix Dictionary
 append.dictionary <- function(...,
                               dictionary.name = "appendix",
-                              save.location = c("envir","package","choose","path"),
+                              save.location = c("envir","wd","choose","path"),
                               path = NULL,
-                              textcleaner = FALSE)
+                              textcleaner = FALSE,
+                              package = FALSE)
 {
-    #grab words
-    words <- list(...)
+    #get words
+    word.list <- list(...)
+    words <- unlist(list(...))
+    
+    #get names
+    name <- as.character(substitute(list(...)))
+    name <- name[-which(name=="list")]
+    
+    #check for dictionaries
+    dicts <- grep(".dictionary", name)
+    
+    if(length(dicts) != 0)
+    {
+        #get dictionary words
+        dict.words <- sort(unique(unlist(word.list[dicts])))
+        
+        #separate new words
+        new.words <- setdiff(words, dict.words)
+    }else{new.words <- words}
+    
+    #check if package
+    if(package)
+    {
+        #shortens essential argument input
+        if(missing(save.location))
+        {save.location <- "path"}
+        
+        #path to package on local pc
+        path <- "D:/R Packages/SemNetDictionaries/data"
+        
+        #updated dictionary
+        updated <- sort(unique(c(unlist(words), load.dictionaries(dictionary.name))))
+        
+        #set dictionary name
+        dictionary <- paste(dictionary.name, ".dictionary", sep = "")
+        
+        #assign dictionary object
+        assign(dictionary, updated, envir = environment())
+        
+        #path to data
+        data.path <- paste(path, "/", dictionary, ".Rdata", sep = "")
+        
+        #save data
+        save(list = dictionary, file = data.path, envir = environment(), version = 2)
+        
+        #escape function
+        return(message(paste(dictionary, ".Rdata was updated.", sep = "")))
+    }
     
     #save location for appendix dictionary
     if(missing(save.location))
@@ -139,17 +188,17 @@ append.dictionary <- function(...,
     if(save.location == "envir")
     {
         #files in environment
-        sav.files <- ls(envir=.GlobalEnv)
+        sav.files <- ls(envir = globalenv())
         
         #create appendix dictionary alias
         append.data <- paste(dictionary.name,"dictionary",sep=".")
         
     }else if(save.location != "envir")
     {
-        if(save.location == "package")
+        if(save.location == "wd")
         {
-            #path to package
-            path <- system.file("Data", package = "SemNetDictionaries")
+            #path to working directory
+            path <- getwd()
             
         }else if(save.location == "choose")
         {
@@ -180,7 +229,7 @@ append.dictionary <- function(...,
     if(append.data %in% sav.files)
     {
         #put new words into vector
-        new.words <- unlist(words)
+        new.words <- unlist(new.words)
         
         #make them lower case
         new.words <- tolower(new.words)
@@ -188,12 +237,14 @@ append.dictionary <- function(...,
         if(save.location != "envir")
         {
             #load appendix dictionary
-            append.words <- readRDS(paste(sav.loc,append.data,sep="\\"))
+            append.words <- readRDS(paste(sav.loc,append.data,sep="/"))
             
         }else if(save.location == "envir")
         {
             #load appendix dictionary
-            append.words <- get(paste(dictionary.name,"dictionary",sep="."))
+            if(textcleaner)
+            {append.words <- dict.words
+            }else{append.words <- get(paste(dictionary.name,"dictionary",sep="."), envir = globalenv())}
         }
         
         #combine appendix dictionary with new words
@@ -205,7 +256,9 @@ append.dictionary <- function(...,
         if(save.location == "envir")
         {
             #let user know
-            message("Dictionary has been updated")
+            if(!textcleaner)
+            {message("Dictionary has been updated")   
+            }else{message(paste("\nResponse was ADDED TO DICTIONARY:", paste("'", new.words, "'", sep = "")))}
             
             #give back updated words
             return(append.words)
@@ -220,39 +273,46 @@ append.dictionary <- function(...,
             if(ans == 1)
             {
                 #save as updated appendix dictionary
-                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
+                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="/")), version = 2)
                 
                 #let user know that the dictionary has been updated
-                message(paste(append.data," has been updated.",sep=""))
+                message(paste("\n", append.data," has been updated.",sep=""))
                 
             }else if(ans == 2)
             {
                 #let user know that the dictionary was not updated
-                message(paste(append.data," was not updated.",sep=""))
+                message(paste("\n", append.data," was not updated.",sep=""))
             }
             
         }else if(save.location == "path")
         {
             #then save as updated appendix dictionary
-            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
+            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="/")), version = 2)
             
             #let user know that the dictionary has been updated
-            message(paste(append.data," has been updated.",sep=""))
+            message(paste("\n", append.data," has been updated.",sep=""))
         }
         
     }else{
         #put new words into vector
-        append.words <- unlist(words)
+        append.words <- unlist(new.words)
         
         #make them lower case
         append.words <- tolower(append.words)
         
         #alphabetize and unique words combined into dictionary
-        append.words <- unique(sort(append.words))
+        if(textcleaner)
+        {append.words <- unique(sort(c(append.words, dict.words)))
+        }else{append.words <- unique(sort(append.words))}
         
         if(save.location == "envir")
         {
-            #give back words
+            #let user know
+            if(!textcleaner)
+            {message("Dictionary has been created")   
+            }else{message(paste("\nResponse was ADDED TO DICTIONARY:", paste("'", new.words, "'", sep = "")))}
+            
+            #give back updated words
             return(append.words)
             
         }else if(save.location == "choose")
@@ -265,26 +325,26 @@ append.dictionary <- function(...,
             if(ans == 1)
             {
                 #save as new appendix dictionary
-                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
+                saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="/")), version = 2)
                 
                 #let user know that a new file has been saved
-                message(paste("A new dictionary file was created in:\n",
-                              paste(sav.loc,append.data,sep="\\"),"\n"))
+                message(paste("\nA new dictionary file was created in: '",
+                              paste(sav.loc, append.data, sep="/"), "'", sep = ""))
                 
             }else if(ans == 2)
             {
                 #let user know that the dictionary was not updated
-                message(paste(append.data," was not saved.",sep=""))
+                message(paste("\n",append.data," was not saved.",sep=""))
             }
             
         }else if(save.location == "path")
         {
             #save as new appendix dictionary
-            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="\\")), version = 2)
+            saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="/")), version = 2)
             
             #let user know that a new file has been saved
-            message(paste("A new dictionary file was created in:\n",
-                          paste(sav.loc,append.data,sep="\\"),"\n"))
+            message(paste("\nA new dictionary file was created in: '",
+                          paste(sav.loc, append.data, sep="/"), "'", sep = ""))
         }
     }
 }
