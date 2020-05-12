@@ -1,8 +1,14 @@
 Changes in version 0.1.6
 
-o UPDATE: `find.dictionaries` searches desktop and downloads folders
+o UPDATE: `append.dictionary` includes an option for saving in the working directory (useful when working in project directories)
+
+o FIX: `append.dictionary` only uses forward slashes when saving (allows for proper saving on Mac and Linux)
+
+o UPDATE: `find.dictionaries` searches desktop, downloads, and working directory folders
 
 o FIX: `load.dictionaries` can handle more than one dictionary (fixed vector bug)
+
+o UPDATE: more entries for `animals.dictionary` and `animals.moniker`
 
 
 Changes in version 0.1.5

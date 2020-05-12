@@ -284,8 +284,7 @@ append.dictionary <- function(...,
                 message(paste("\n", append.data," was not updated.",sep=""))
             }
             
-        }else if(save.location == "path")
-        {
+        }else{
             #then save as updated appendix dictionary
             saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="/")), version = 2)
             
@@ -337,8 +336,7 @@ append.dictionary <- function(...,
                 message(paste("\n",append.data," was not saved.",sep=""))
             }
             
-        }else if(save.location == "path")
-        {
+        }else{
             #save as new appendix dictionary
             saveRDS(append.words, file = file.path(paste(sav.loc,append.data,sep="/")), version = 2)
             
