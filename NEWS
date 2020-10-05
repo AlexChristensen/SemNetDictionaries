@@ -1,3 +1,10 @@
+Changes in version 0.1.7
+
+o FIX: choose directory bug in `append.dictionary`
+
+o UPDATE: compatiability updates for SemNetCleaner package
+
+
 Changes in version 0.1.6
 
 o UPDATE: `append.dictionary` includes an option for saving in the working directory (useful when working in project directories)

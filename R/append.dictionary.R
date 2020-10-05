@@ -123,7 +123,8 @@
 #' @importFrom utils menu
 #' 
 #' @export
-#Appendix Dictionary
+# Appendix Dictionary
+# Updated 23.09.2020
 append.dictionary <- function(...,
                               dictionary.name = "appendix",
                               save.location = c("envir","wd","choose","path"),
@@ -142,14 +143,9 @@ append.dictionary <- function(...,
     #check for dictionaries
     dicts <- grep(".dictionary", name)
     
+    #get dictionary words
     if(length(dicts) != 0)
-    {
-        #get dictionary words
-        dict.words <- sort(unique(unlist(word.list[dicts])))
-        
-        #separate new words
-        new.words <- setdiff(words, dict.words)
-    }else{new.words <- words}
+    {dict.words <- sort(unique(unlist(word.list[dicts])))}
     
     #check if package
     if(package)
@@ -203,7 +199,7 @@ append.dictionary <- function(...,
         }else if(save.location == "choose")
         {
             #let user select path
-            path <- tcltk::tk_choose.dir()
+            path <- paste(tcltk::tkchooseDirectory(), collapse = " ")
             
         }else if(save.location == "path") #check if path exists
         {
@@ -229,7 +225,7 @@ append.dictionary <- function(...,
     if(append.data %in% sav.files)
     {
         #put new words into vector
-        new.words <- unlist(new.words)
+        new.words <- unlist(words)
         
         #make them lower case
         new.words <- tolower(new.words)
@@ -294,7 +290,7 @@ append.dictionary <- function(...,
         
     }else{
         #put new words into vector
-        append.words <- unlist(new.words)
+        append.words <- unlist(words)
         
         #make them lower case
         append.words <- tolower(append.words)

@@ -18,7 +18,8 @@ This search takes a few seconds to complete
 \item{add.path}{Character.
 Path to additional dictionaries to be found.
 DOES NOT search recursively (through all folders in path)
-to avoid time intensive search}
+to avoid time intensive search.
+Set to \code{"choose"} to open an interactive directory explorer}
 }
 \value{
 \item{names}{Returns the names of the appendix dictionary file(s) found on your computer}
@@ -51,7 +52,8 @@ Sys.time() - t0
 \seealso{
 \code{\link{append.dictionary}} to create a new dictionary,
 \code{\link{dictionaries}} to identify dictionaries in
-\code{\link{SemNetDictionaries}}
+\code{\link{SemNetDictionaries}}, and
+ \code{\link{load.dictionaries}} to load multiple dictionaries
 }
 \author{
 Alexander Christensen <alexpaulchristensen@gmail.com>

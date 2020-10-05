@@ -4,14 +4,20 @@
 \alias{load.dictionaries}
 \title{Load Dictionaries}
 \usage{
-load.dictionaries(...)
+load.dictionaries(..., add.path = NULL)
 }
 \arguments{
 \item{...}{Character.
 Dictionaries to load
 
 Dictionaries in your global environment
-MUST be objects called \code{"*.dictionary"} (see examples).
+MUST be objects called \code{"*.dictionary"} (see examples)}
+
+\item{add.path}{Character.
+Path to additional dictionaries to be found.
+DOES NOT search recursively (through all folders in path)
+to avoid time intensive search.
+Set to \code{"choose"} to open an interactive directory explorer
 
 \code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in the \code{\link{SemNetDictionaries}} package
 

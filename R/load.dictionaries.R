@@ -9,7 +9,13 @@
 #' Dictionaries to load
 #' 
 #' Dictionaries in your global environment
-#' MUST be objects called \code{"*.dictionary"} (see examples).
+#' MUST be objects called \code{"*.dictionary"} (see examples)
+#' 
+#' @param add.path Character.
+#' Path to additional dictionaries to be found.
+#' DOES NOT search recursively (through all folders in path)
+#' to avoid time intensive search.
+#' Set to \code{"choose"} to open an interactive directory explorer
 #' 
 #' \code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in the \code{\link{SemNetDictionaries}} package
 #' 
@@ -49,9 +55,9 @@
 #' @importFrom stats na.omit
 #' 
 #' @export
-#Load Dictionary Function
-# Updated 03.04.2020
-load.dictionaries <- function (...)
+# Load Dictionary Function
+# Updated 08.09.2020
+load.dictionaries <- function (..., add.path = NULL)
 {
     # list dictionaries
     dictionary <- unlist(list(...))
@@ -65,8 +71,8 @@ load.dictionaries <- function (...)
         dict.list <- list()
         
         #first look in 'SemNetDictionaries' and environment dictionaries
-        sndict <- SemNetDictionaries::dictionaries(TRUE)
-        #grab dictonaries from environment and remove ".dictionary"
+        sndict <- dictionaries(TRUE)
+        #grab dictionaries from environment and remove ".dictionary"
         envdict <- gsub(".dictionary","",ls(envir=.GlobalEnv)[grep(".dictionary",ls(envir=.GlobalEnv))])
         #also look in package folder
         pkgdict <- gsub(".dictionary.rds","",list.files(system.file("Data", package = "SemNetDictionaries")))[grep(".dictionary",list.files(system.file("Data", package = "SemNetDictionaries")))]
@@ -103,7 +109,7 @@ load.dictionaries <- function (...)
         }else{
             
             #update dictionaries with user-defined dictionaries
-            find.dict <- SemNetDictionaries::find.dictionaries()
+            find.dict <- find.dictionaries(add.path = add.path)
             name.dict <- find.dict$names
             path.dict <- find.dict$files
             envdict <- gsub(".dictionary","",ls(envir=.GlobalEnv)[grep(".dictionary",ls(envir=.GlobalEnv))])
