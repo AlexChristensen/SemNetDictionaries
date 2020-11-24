@@ -124,7 +124,7 @@
 #' 
 #' @export
 # Appendix Dictionary
-# Updated 23.09.2020
+# Updated 22.11.2020
 append.dictionary <- function(...,
                               dictionary.name = "appendix",
                               save.location = c("envir","wd","choose","path"),
@@ -262,8 +262,9 @@ append.dictionary <- function(...,
         }else if(save.location == "choose")
         {
             #ask if user would like to save dictionary
-            if(!textcleaner)
-            {ans <- menu(c("Yes","No"),title="Would you like to update your saved dictionary?")
+            if(!textcleaner){
+                
+                ans <- yes.no.menu(title = "Update your dictionary")
             }else{ans <- 1}
             
             if(ans == 1)
@@ -314,7 +315,7 @@ append.dictionary <- function(...,
         {
             #ask if user would like to save dictionary
             if(!textcleaner)
-            {ans <- menu(c("Yes","No"),title="Would you like to save your appendix dictionary?")
+            {ans <- yes.no.menu(title = "Save your dictionary")
             }else{ans <- 1}
             
             if(ans == 1)
