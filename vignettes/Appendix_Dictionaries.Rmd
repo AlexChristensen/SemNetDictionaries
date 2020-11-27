@@ -1,12 +1,12 @@
 ---
 title: "Appendix Dictionaries"
 author: "Alexander Christensen"
-date: "10/27/2019"
+date: 27.11.2020
 output: html_document
 bibliography: Christensen_General_Library.bib
 csl: apa.csl
 vignette: >
-  %\VignetteIndexEntry{Appendix_Dictionaries}
+  %\VignetteIndexEntry{Appendix Dictionaries}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   \usepackage[utf8]{inputenc}
@@ -15,6 +15,7 @@ vignette: >
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(htmlTable)
+library(SemNetDictionaries)
 ```
 
 ### Vignette taken directly from @christensen2019semna
@@ -25,13 +26,13 @@ The *SemNetDictionaries* package contains several functions that facilitate the 
 The dictionaries contained in the package currently include verbal fluency categories of *animals*, *fruits*, *vegetables*, and *jobs* as well as synonym categories of *hot* and *good* (Table 1). A *general* dictionary also accommodates phonological fluency tasks with the use of single letters (e.g., words that start with \`f\'). For each category and synonym dictionary, there is an accompanying moniker glossary that is used to automatically convert monikers (e.g., *bear cat*) and common misspellings (e.g., *binterong*) into a homogeneous response (e.g., *binturong*). These categories were included because the authors have data for them; however, we note that there are other possible verbal fluency categories.
 
 ```{r tab1, echo = FALSE, eval = TRUE, comment = NA, warning = FALSE}
-output <- matrix(c("animals", "1,021", "Category",
-                   "fruits", "488", "Category",
-                   "general", "370,103", "All-purpose",
-                   "good", "284", "Synonym",
-                   "hot", "281", "Synonym",
-                   "jobs", "1,471", "Category",
-                   "vegetables", "284", "Category"),
+output <- matrix(c("animals", length(animals.dictionary), "Category",
+                   "fruits", length(fruits.dictionary), "Category",
+                   "general", length(general.dictionary), "All-purpose",
+                   "good", length(good.dictionary), "Synonym",
+                   "hot", length(hot.dictionary), "Synonym",
+                   "jobs", length(jobs.dictionary), "Category",
+                   "vegetables", length(vegetables.dictionary), "Category"),
                  ncol = 3, byrow = TRUE)
 
 

@@ -5,13 +5,13 @@
 \alias{brit2us}
 \title{British-US English Converions}
 \format{
-brit2us (list, length = 778)
+brit2us (list, length = 779)
 }
 \usage{
 data(brit2us)
 }
 \description{
-A database to convert between British and US spellings (\emph{n} = 778)
+A database to convert between British and US spellings (\emph{n} = 779)
 }
 \examples{
 data("brit2us")
