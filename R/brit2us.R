@@ -1,5 +1,5 @@
 #British-US English Conversions----
-#' British-US English Converions
+#' British-US English Conversions
 #'
 #' A database to convert between British and US spellings (\emph{n} = 780)
 #' 

@@ -3,7 +3,7 @@
 \docType{data}
 \name{brit2us}
 \alias{brit2us}
-\title{British-US English Converions}
+\title{British-US English Conversions}
 \format{
 brit2us (list, length = 780)
 }

@@ -1,7 +1,7 @@
 Package: SemNetDictionaries
 Title: Dictionaries for the 'SemNetCleaner' Package
 Version: 0.1.8
-Date: 2020-11-27
+Date: 2020-12-02
 Authors@R: c(person("Alexander P.", "Christensen", email = "alexpaulchristensen@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9798-7037")))
 Maintainer: Alexander P. Christensen <alexpaulchristensen@gmail.com>
 Description: Implements dictionaries that can be used in the 'SemNetCleaner' package. Also includes several functions aimed at facilitating the text cleaning analysis in the 'SemNetCleaner' package. This package is designed to integrate and update word lists and dictionaries based on each user's individual needs by allowing users to store and save their own dictionaries. Dictionaries can be added to the 'SemNetDictionaries' package by submitting user-defined dictionaries to <https://github.com/AlexChristensen/SemNetDictionaries>.
