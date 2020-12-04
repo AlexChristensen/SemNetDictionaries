@@ -8,7 +8,7 @@ Description: Implements dictionaries that can be used in the 'SemNetCleaner' pac
 Depends: R (>= 3.6.0)
 License: GPL (>= 3.0)
 Imports: easycsv, knitr
-Suggests: htmlTable
+Suggests: htmlTable, markdown, rmarkdown
 URL: https://github.com/AlexChristensen/SemNetDictionaries
 BugReports: https://github.com/AlexChristensen/SemNetDictionaries/issues
 NeedsCompilation: no
