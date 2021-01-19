@@ -26,7 +26,8 @@
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>
 #' 
 #' @export
-#Load moniker Function
+# Load moniker Function
+# Updated 19.01.2021
 load.monikers <- function (moniker, vector = TRUE)
 {
     #set in case of corpus being used
@@ -40,7 +41,7 @@ load.monikers <- function (moniker, vector = TRUE)
         #look in 'SemNetDictionaries'
         sndict <- SemNetDictionaries::dictionaries(TRUE)
         
-        if(all(moniker %in% sndict))
+        if(any(moniker %in% sndict))
         {
             for(i in 1:length(moniker))
             {
