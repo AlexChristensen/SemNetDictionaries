@@ -1,0 +1,1471 @@
+abattoir
+abattoir worker
+accountant
+accounts
+accounts clerk
+acrobat
+actor
+actuary
+acupuncturist
+ad maker
+adjuster
+administrative
+administrative assistant
+administrator
+adventure
+advertising
+advertising specialist
+adviser
+aeronautical
+aeronautical engineer
+aeroplane
+aeroplane pilot
+aerospace engineer
+aged
+aged care worker
+agent
+agricultural
+agricultural consultant
+agricultural engineer
+agricultural scientist
+aide
+air
+air-conditioning
+air-conditioning and refrigeration mechanic
+air combat officer
+air force
+air force technician
+air traffic controller
+aircraft
+airline
+airline ground crew
+airplane engineer
+airplane ground crew
+airplane mechanic
+alcohol
+ambassador
+ambulance
+ambulance officer
+anaesthetist
+analyst
+and
+anesthesiologist
+animal
+animal trainer
+animator
+announcer
+anthropologist
+aquaculture
+aquaculture farmer
+arborist
+archaeologist
+architect
+architectural
+architectural draftsperson
+archivist
+army
+army officer
+army soldier
+art
+art curator
+art director
+art teacher
+artist
+arts
+assistant
+assistant therapist
+associate
+astronaut
+athlete
+athletic
+attendant
+attorney
+auctioneer
+audiologist
+audiovisual
+audiovisual technician
+auditor
+author
+auto mechanic
+autocad
+autocad operator
+automotive
+automotive electrician
+avionics
+avionics engineer
+babysitter
+bagger
+bailiff
+baker
+bank
+bank teller
+bank worker
+banker
+bar
+bar attendant
+barback
+barista
+barrister
+bartender
+basketball
+basketball player
+beaurocrat
+beauty
+beauty therapist
+beef
+beef cattle farmer
+beer brewer
+bicycle
+bicycle mechanic
+biker
+binder
+binder and finisher
+biochemist
+biologist
+biomedical
+biomedical engineer
+biosecurity
+biosecurity officer
+biotechnologist
+blacksmith
+boat
+boat mechanic
+body
+body artist
+body guard
+boiler
+boiler operator
+book
+book editor
+bookkeeper
+bookmaker
+bookseller
+border
+border patrol
+botanist
+bouncer
+bounty
+bounty hunter
+branch
+brewer
+bricklayer
+broadcast
+broadcast transmitter operator
+broker
+builder
+builder's
+builder's labourer
+building
+building insulation installer
+building surveyor
+bull rider
+bus
+bus driver
+busboy
+business
+business administrator
+business analyst
+business machine mechanic
+business owner
+business person
+businessman
+busser
+butcher
+butler
+buyer
+cab
+cab driver
+cabinetmaker
+cable
+cable guy
+caddy
+call
+call center operator
+call center team leader
+camera
+camera operator
+camera person
+canvas
+canvas goods fabricator
+captain
+car
+car park attendant
+car salesman
+car washer
+cardiologist
+cardiothoracic
+cardiothoracic surgeon
+care
+care provider
+careers
+careers counsellor
+caretaker
+carpenter
+cartographer
+cashier
+cattle
+celebrant
+center
+centre
+ceo
+certified
+certified nursing assistant
+cfa
+cfo
+chaffeur
+chancellor
+character artist
+chaser
+chef
+chemical
+chemical engineer
+chemist
+chief
+chief executive director
+chief executive operator
+chief finance operator
+chief of staff
+child
+child care center manager
+child care worker
+child protection worker
+childhood
+chiropractor
+choreographer
+cia
+cinematographer
+civil
+civil celebrant
+civil engineer
+civil engineering draftsperson
+civil engineering technician
+classer
+cleaner
+clerical worker
+clerk
+clinical
+clinical haematologist
+clinical psychologist
+clinical therapist
+clock
+clock maker
+clothing
+clothing production worker
+clown
+cma
+cna
+coach
+coastal
+coastal engineer
+coater
+cobbler
+cobler
+collector
+combat
+comedian
+commercial
+commercial cleaner
+commercial housekeeper
+commerical housekeeper
+commodities
+commodities trader
+communications
+communications operator
+community
+community corrections officer
+community worker
+company
+composer
+computer
+computer-aided
+computer-aided design technician
+computer engineer
+computer programmer
+computer technician
+concierge
+concreter
+conductor
+confectionery
+confectionery maker
+conference
+conference and event organiser
+confocal microscope technician
+conservation
+conservation officer
+conservator
+construction
+construction estimator
+construction project manager
+construction rigger
+construction worker
+consultant
+contract
+contract administrator
+contractor
+controller
+cook
+coordinator
+copywriter
+corporate
+corporate general manager
+corrections
+cosmotoligist
+costco membership checker
+counsellor
+court
+court bailiff
+court sheriff
+coxswain
+cpa
+crafts
+crane
+crane chaser
+crane operator
+crew
+crime scene investigator
+crop
+csi
+ctrs
+curator
+custodian
+customer
+customer service
+customer service manager
+customer support
+customs
+customs officer
+dairy
+dairy cattle farmer
+dancer
+data
+data entry clerk
+day care worker
+daycare
+daycare provider
+deaf
+dealer
+dean
+debt
+debt collector
+deck
+deck hand
+defense
+defense attorney
+delivery
+delivery driver
+delivery man
+dental
+dental assistant
+dental hygienist
+dental specialist
+dental technician
+dental therapist
+dentist
+dermatologist
+design
+designer
+detective
+developer
+developer programmer
+development
+diagnostic
+diesel
+diesel motor mechanic
+dietitian
+diplomat
+director
+disability
+disability services officer
+disability worker
+dishwasher
+distribution
+diver
+diversional
+diversional therapist
+docter
+doctor
+dog
+dog trainer
+dog walker
+domestic
+domestic cleaner
+door greeter
+doorperson
+draftsperson
+driller
+drilling
+drilling engineer
+driver
+driving
+driving instructor
+drug
+drug and alcohol counsellor
+drycleaner
+early
+early childhood educator
+earth
+earth science technician
+earthmoving
+earthmoving plant operator
+economist
+editor
+education
+educator
+electorate
+electorate officer
+electrical
+electrical engineer
+electrical engineering draftsperson
+electrical engineering technician
+electrical linesworker
+electrician
+electronic
+electronic engineering technician
+electronic equipment trades worker
+electronic instrument trades worker
+electronics
+electronics engineer
+electroplater
+elementary
+elementary school teacher
+embalmer
+emergency
+emergency medical service person
+emergency medical technician
+emergency medicine specialist
+ems
+emt
+endocrinologist
+engine
+engine operator
+engineer
+engineering
+engineering manager
+engineering patternmaker
+engraver
+enrolled
+enrolled nurse
+entertainer
+entrepreneur
+environmental
+environmental consultant
+environmental engineer
+environmental health officer
+environmental manager
+environmental research scientist
+equipment
+escort
+estate
+estimator
+event
+event planner
+examiner
+executive
+exercise
+exercise physiologist
+exercise scientist
+exterminator
+fabricator
+facilities
+facilities maintenance
+facilities manager
+factory
+factory worker
+faller
+farm
+farm manager
+farmer
+fashion
+fashion designer
+fast
+fast food
+fast food cook
+fast food employee
+father
+fbi
+fibrous
+fibrous plasterer
+field guide
+fighter
+filler
+film
+film producer
+finance
+finance broker
+financial
+financial adviser
+financial institution branch manager
+financial investment adviser
+financial investment manager
+finisher
+fire
+fire fighter
+fisher
+fisheries
+fisheries officer
+fisherman
+fishing
+fishing hand
+fitness
+fitness instructor
+fitter
+fixer
+fleet
+fleet manager
+flight
+flight attendant
+floor
+floor finisher
+florist
+flying
+flying instructor
+food
+food processing worker
+food processor
+food service
+food technologist
+football
+football player
+force
+forensic
+forensic pathologist
+forensic scientist
+forester
+forklift
+forklift driver
+framer
+freelance
+freelance artist
+froyo
+froyo technician
+fruit
+fruit and vegetable picker
+funeral
+funeral director
+furniture
+furniture designer
+furniture finisher
+furniture removalist
+galery
+galery technician
+gallery
+gallery curator
+gallery guide
+game
+game developer
+gaming
+gaming worker
+garbage
+garbage collector
+garbage person
+garbageman
+gardener
+gasfitter
+gastroenterologist
+general
+general clerk
+general medical practitioner
+generation
+genetic
+genetic counsellor
+geneticist
+geologist
+geophysicist
+geotechnical
+geotechnical engineer
+gerontologist
+ghost writer
+glazier
+goldsmith
+goods
+governor
+grape
+grape grower
+graphic
+graphic designer
+graphic pre-press trades worker
+greenkeeper
+greeter
+grocery bagger
+groomer
+ground
+grower
+guard
+guidance
+guidance counsellor
+guide
+gunsmith
+gym owner
+gymnast
+gynaecologist
+gynecologist
+haematologist
+hair
+hair salon manager
+hair stylist
+hairdresser
+hand
+handyperson
+health
+health coach
+health educator
+health information manager
+health promotion officer
+helicopter
+helicopter pilot
+hematologist
+herpetologist
+high
+high school teacher
+histologist
+historian
+hitman
+horse
+horse trainer
+horseback rider
+hospital
+hospital pharmacist
+host
+hostess
+hotel
+hotel manager
+housekeeper
+hr
+hr representative
+human
+human resource adviser
+human resource manager
+human resources manager
+human resources representative
+humanitarian
+hunter
+hydrologist
+hygienist
+illustrator
+immigration
+immigration officer
+impaired
+industrial
+industrial designer
+industrial engineer
+industrial pharmacist
+information
+information technology administrator
+inspector
+installer
+institution
+instructor
+instrument
+insulation
+insurance
+insurance adjuster
+insurance agent
+insurance broker
+intelligence
+intelligence officer
+intensive
+intensive care specialist
+interior
+interior designer
+interpreter
+inventor
+investigator
+investment
+investor
+it
+it analyst
+janitor
+jewellery
+jewellery designer
+jockey
+joiner
+jointer
+journalist
+judge
+jury
+kinesiologist
+kitchenhand
+lab
+lab assistant
+lab manager
+lab worker
+laboratory
+laboratory manager
+laboratory technician
+labourer
+landscape
+landscape architect
+landscape gardener
+landscaper
+laundry
+laundry worker
+law
+law clerk
+lawn maintenance person
+lawyer
+leader
+lecturer
+legal
+legal secretary
+lesson
+librarian
+library
+library assistant
+library technician
+life coach
+life guard
+lifeguard
+lift
+lift mechanic
+light
+light technician
+linesworker
+linguist
+livestock
+loan adviser
+loan officer
+locksmith
+logistics
+logistics clerk
+loss
+loss protection
+lunch lady
+machine
+machine shorthand reporter
+machinist
+magician
+mail
+mail person
+maintenance
+maintenance planner
+maintenance worker
+make
+make up artist
+maker
+manager
+manga artist
+manufacturer
+marine
+marine biologist
+marine fabricator
+marine surveyor
+market
+market research analyst
+marketer
+marketing
+marketing manager
+marketing specialist
+massage
+massage therapist
+masseuse
+master
+master fisher
+materials
+materials engineer
+materials operator
+materials recycler
+materials technician
+math
+math teacher
+mathematician
+mayor
+mcdonalds drive thru worker
+meat
+meat inspector
+mechanic
+mechanical
+mechanical engineer
+mechanical engineering draftsperson
+mechanical engineering technician
+mechanical fitter
+mechatronic
+mechatronic engineer
+medic
+medical
+medical administrator
+medical assistant
+medical diagnostic radiographer
+medical laboratory scientist
+medical oncologist
+medical radiation therapist
+medical receptionist
+medicine
+member
+member of parliament
+mental
+mental health worker
+merchandiser
+metal
+metal engineering process worker
+metal fabricator
+metal machinist
+metallurgist
+meteorologist
+meter
+meter reader
+meterologist
+microbiologist
+middle
+middle school teacher
+midwife
+migration
+migration agent
+military
+milkman
+milliner
+miner
+mining
+mining engineer
+mining production manager
+mining support worker
+minister
+minister of religion
+mixed
+mixed crop and livestock farm worker
+model
+mom
+monitor
+mortgage
+mortgage broker
+mother
+mothercraft
+mothercraft nurse
+motion
+motion picture projectionist
+motor
+motor mechanic
+motorcycle
+motorcycle mechanic
+movie
+movie star
+multimedia
+multimedia specialist
+museum
+museum curator
+museum guide
+museum technician
+music
+music producer
+music teacher
+musical
+musical conductor
+musician
+musicologist
+nail technician
+nanny
+narrator
+naturopath
+naval
+naval architect
+navy
+navy sailor
+navy seal
+navy technician
+needs
+network
+network administrator
+network engineer
+neuro
+neurologist
+neuroscientist
+neurosurgeon
+news anchor
+newspaper delivery
+novelist
+nuclear
+nuclear medicine technologist
+nurse
+nurse educator
+nurse manager
+nurse practitioner
+nurseryperson
+nursing
+nursing clinical director
+nursing support worker
+nutritionist
+obgyn
+obstetrician
+occupational
+occupational health and safety adviser
+occupational therapist
+of
+office
+office clerk
+office manager
+officer
+official
+offset
+offset printer
+olympian
+oncologist
+operator
+ophthalmologist
+optical
+optical mechanic
+optician
+optometrist
+or
+oral
+oral hygienist
+oral surgeon
+orator
+organiser
+orthopaedic
+orthopaedic surgeon
+orthopedic
+orthoptist
+orthotist
+osteopath
+otorhinolaryngologist
+outdoor
+outdoor adventure instructor
+owner
+pa
+package handler
+paediatric
+paediatric surgeon
+paediatrician
+painter
+painting
+painting trades worker
+panelbeater
+paramedic
+park
+park ranger
+parking
+parking inspector
+parliament
+parol
+parol officer
+pastor
+pastrycook
+pasture
+pasture grower
+pathologist
+patient
+patient care assistant
+patrol
+patternmaker
+payroll
+payroll clerk
+pediatric
+pediatric dentist
+pediatrician
+performer
+person
+personal
+personal assistant
+personal trainer
+personnel
+pest
+pest controller
+pet
+pet groomer
+pet walker
+petroleum
+petroleum engineer
+petrophysicist
+pharmacist
+pharmacologist
+pharmacy
+pharmacy technician
+philanthropist
+phlebotomist
+photographer
+photographer's
+photographer's assistant
+physical
+physical education teacher
+physical therapist
+physical trainer
+physician
+physician's
+physician's assistant
+physicist
+physiologist
+physiotherapist
+picker
+picture
+picture framer
+pilot
+planner
+plant
+plant mechanic
+plasterer
+plastic
+plastic surgeon
+plastics
+plastics technician
+play director
+player
+playwright
+plumber
+podiatrist
+poet
+police
+police officer
+policy
+policy analyst
+political
+political scientist
+politician
+polymer
+polymer factory worker
+pool boy
+porn star
+postal
+postal delivery officer
+powder
+powder coater
+power
+power generation plant operator
+pr
+practitioner
+pre-press
+preacher
+precision
+precision instrument maker and repairer
+prep
+prep cook
+preschool
+preschool teacher
+presenter
+president
+priest
+primary
+primary school teacher
+principal
+printer
+printing
+printing machinist
+prison
+prison guard
+prison officer
+private
+private investigator
+private lesson teacher
+process
+process engineer
+process plant operator
+processing
+processor
+producer
+product
+product examiner
+production
+production engineer
+production manager
+professional
+professional athlete
+professional musician
+professional skateboarder
+professor
+programmer
+project
+project administator
+project administrator
+project builder
+project manager
+projectionist
+promotion
+prop
+prop and scenery maker
+property
+property developer
+property manager
+prosceutor
+prostitute
+protection
+provider
+psychiatrist
+psychologist
+public
+public relations
+public relations professional
+public worker
+publisher
+pusher
+quantity
+quantity surveyor
+racecar
+racecar driver
+radiation
+radiation oncologist
+radio
+radio announcer
+radio host
+radio player
+radio presenter
+radio producer
+radio technician
+radiographer
+radiologist
+railway
+railway track worker
+ranger
+rapper
+reader
+real
+real estate representative
+realtor
+receptionist
+reconstructive
+reconstructive surgeon
+records
+records manager
+recreation
+recreation officer
+recruiter
+recruitment
+recruitment consultant
+recycler
+recycling
+recycling collector
+refrigeration
+regional
+registered
+registered nurse
+relations
+religion
+removalist
+renal
+renal medicine specialist
+repair man
+repairer
+reporter
+representative
+research
+research assistant
+research specialist
+researcher
+resident
+resident medical officer
+resource
+restaurant
+restaurant manager
+restorative nurse aid
+retail
+retail buyer
+retail manager
+retail worker
+retirement
+retirement village manager
+rheumatologist
+rideshare driver
+rigger
+rna
+road
+road worker
+roof
+roof plumber
+roof tiler
+safety
+safety inspector
+sailor
+sales
+sales assistant
+sales associate
+sales manager
+sales representative
+salesman
+salesperson
+salon
+sandwich
+sandwich maker
+saw
+saw maker and repairer
+sawmill
+sawmill worker
+scaffolder
+scenery
+school
+school principal
+school teacher
+science
+science teacher
+scientist
+screen
+screen printer
+script
+script editor
+sculptor
+seafood
+seafood process worker
+secondary
+secondary school teacher
+secretary
+security
+security guard
+security officer
+security specialist
+security systems installer
+senator
+service
+services
+set
+set designer
+settlement
+settlement agent
+shearer
+sheep
+sheep farmer
+sheetmetal
+sheetmetal trades worker
+shelf
+shelf filler
+sheriff
+ship's
+ship's engineer
+ship's master
+ship's officer
+shoe
+shoe repairer
+shop owner
+shorthand
+shotfirer
+signwriter
+silversmith
+singer
+skateboarder
+ski
+ski instructor
+skiier
+sniper
+social
+social worker
+sociologist
+software
+software designer
+software developer
+software engineer
+soil
+soil scientist
+soldier
+solicitor
+solid
+solid plasterer
+sommolier
+songwriter
+sonographer
+sound
+sound technician
+special
+special needs teacher
+specialist
+speech
+speech pathologist
+speech therapist
+sports
+sports administrator
+sports coach or instructor
+sports development officer
+sportsperson
+star
+statistician
+stay at home father
+stay at home mother
+steel
+steel fixer
+stenographer
+stock
+stock broker
+stockbroking
+stockbroking dealer
+stocker
+stonemason
+store
+store clerk
+storeperson
+streetsweeper
+streetsweeper operator
+stripper
+structural
+structural engineer
+student
+stunt
+stunt performer
+stuntman
+stylist
+supervisor
+supply
+supply and distribution manager
+support
+support technician
+surgeon
+surveillance
+surveillance monitor
+surveyor
+surveyor's
+surveyor's assistant
+swimmer
+systems
+systems administrator
+systems analyst
+systems test engineer
+tailor
+talent
+talent agent
+tattoo artist
+tax collector
+taxi
+taxi driver
+teacher
+teacher's aide
+teacher assistant
+teacher of the deaf
+teacher of the vision impaired
+teachers'
+teachers' aide
+team
+tech
+technical
+technical cable jointer
+technician
+technologist
+technology
+telecommunications
+telecommunications engineer
+telemarketer
+teller
+test
+textile
+textile mechanic
+textile production worker
+the
+theater
+theater manager
+theatre
+theorist
+therapist
+thoracic
+thoracic medicine specialist
+ticket
+ticket collector
+tiler
+tinsmith
+tire
+tire fitter
+tool
+tool pusher
+tour
+tour guide
+tourist
+tourist information officer
+track
+trade
+trade union official
+trader
+trades
+traffic
+train
+train conductor
+train controller
+train driver
+trainer
+training
+training and development professional
+transit
+transit officer
+translator
+transmitter
+transport
+transport company manager
+transport engineer
+trash
+trash collector
+trash person
+trashman
+travel
+travel agent
+travel consultant
+travel guide
+treasurer
+tree
+tree faller
+tree pruner
+truck
+truck driver
+turf
+turf grower
+turner
+tutor
+tv host
+typist
+union
+university
+university lecturer
+up
+upholsterer
+ups man
+urban
+urban and regional planner
+urologist
+usher
+valuer
+vascular
+vascular surgeon
+vegetable
+vehicle
+vehicle body builder
+vendor
+vet tech
+veterinarian
+veterinary
+veterinary nurse
+veterinary technician
+vice president
+video
+video editor
+village
+vineyard
+vineyard worker
+vision
+visual
+visual arts and crafts professional
+visual merchandiser
+vocational
+vocational education and training lecturer
+volunteer
+waiter
+walker
+wall
+wall and floor tiler
+warehouse
+warehouse administrator
+washer
+watchman
+water
+water inspector
+water plant operator
+waterside
+waterside worker
+web
+web designer
+website
+website developer
+wedding
+wedding planner
+weight
+weight loss consultant
+welder
+welfare
+welfare centre manager
+welfare worker
+window cleaner
+wine
+wine maker
+wood
+wood machinist
+wood turner
+wool
+wool classer
+worker
+writer
+xray
+xray technician
+yoga teacher
+youth
+youth worker
+zoo attendant
+zookeeper
+zoologist
