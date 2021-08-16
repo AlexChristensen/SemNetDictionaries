@@ -4,6 +4,7 @@ abyssinian
 adelie penguin
 affenpinscher
 afghan hound
+african buffalo
 african bush elephant
 african civet
 african clawed frog
@@ -84,6 +85,7 @@ balinese
 banana slug
 banded palm civet
 bandicoot
+bantam
 banteng
 barb
 barbet
@@ -140,6 +142,7 @@ black widow spider
 blackbird
 blobfish
 bloodhound
+blow fly
 blowfish
 blue dendrobate
 blue gill
@@ -148,6 +151,7 @@ blue jay
 blue lacy dog
 blue macaw
 blue shark
+blue tit
 blue whale
 bluebird
 bluetick coonhound
@@ -179,6 +183,8 @@ brazilian terrier
 bream
 briard
 brittany
+brolga
+brolgas
 bronco
 brontosaurus
 bronzini fish
@@ -350,6 +356,7 @@ donkey
 dormouse
 double-crested cormorant
 dove
+drafthorse
 dragon
 dragonfly
 drake
@@ -375,6 +382,7 @@ edible frog
 eel
 egret
 egyptian mau
+eland
 electric eel
 elephant
 elephant seal
@@ -438,7 +446,9 @@ frigatebird
 frilled lizard
 frog
 fruit fly
+funnel web spider
 fur seal
+galah
 galapagos penguin
 galapagos tortoise
 gander
@@ -473,6 +483,7 @@ glen of imaal terrier
 glow worm
 gnat
 gnu
+goanna
 goat
 goby
 golden doodle
@@ -491,6 +502,7 @@ grass snake
 grasshopper
 gray whale
 gray wolf
+grayhound
 great blue heron
 great dane
 great horned owl
@@ -507,7 +519,6 @@ grey mouse lemur
 grey reef shark
 grey seal
 grey squirrel
-greyhound
 griffin
 grizzly
 grizzly bear
@@ -515,6 +526,7 @@ ground squirrel
 groundhog
 grouper
 grouse
+grub
 guinea fowl
 guinea pig
 gull
@@ -534,6 +546,7 @@ hercules beetle
 hermit crab
 hermitcrab
 heron
+herring
 highland cattle
 himalayan
 hippo
@@ -600,7 +613,9 @@ keeshond
 killer whale
 king cobra
 king crab
+king parrot
 king penguin
+kingfish
 kingfisher
 kinkajou
 kit
@@ -660,6 +675,7 @@ long-eared owl
 longhorn
 loon
 lop bunny
+lorikeet
 loris
 lory
 louse
@@ -718,6 +734,7 @@ mockingjay
 mole
 molerat
 molly
+monal
 monarch butterfly
 mongoose
 mongrel
@@ -738,10 +755,13 @@ mountain sheep
 mourning dove
 mouse
 mule
+mullet
+muntjac
 muskox
 muskrat
 muskrat kit
 mussel
+muttaburrasaurus
 myna
 naked mole-rat
 naked molerat
@@ -813,6 +833,7 @@ percheron
 peregrine
 persian
 pet
+pewee
 pharaoh hound
 pheasant
 phoenix
@@ -833,6 +854,7 @@ planarian
 plankton
 platypus
 plott
+plover
 pointer
 poison dart frog
 polar bear
@@ -894,6 +916,7 @@ ray
 red-handed tamarin
 red-tailed hawk
 red ant
+red deer
 red drum
 red fox
 red herring
@@ -931,6 +954,7 @@ roly-poly
 rook
 rooster
 roseate spoonbill
+rosella
 rottweiler
 royal penguin
 russian blue
@@ -948,6 +972,7 @@ sand flea
 sand lizard
 sand trout
 saola
+sardine
 sasquatch
 sawfish
 scallop
@@ -996,6 +1021,7 @@ siberian blue robin
 siberian husky
 siberian tiger
 sidewinder
+silkworm
 silky terrier
 silver dollar
 silverfish
@@ -1094,6 +1120,7 @@ terrapin
 tetra
 thai ridgeback
 thorny devil
+thrush
 tibetan mastiff
 tibetan spaniel
 tibetan terrier
@@ -1116,6 +1143,7 @@ towhee
 toy fox terrier
 tree frog
 treeing walker coonhound
+trevally
 triceratops
 tropicbird
 trout
@@ -1147,9 +1175,11 @@ warbler
 warthog
 wasp
 water bear
+water bird
 water buffalo
 water dragon
 water moccasin
+water monitor
 water vole
 weasel
 weasel kit
@@ -1171,10 +1201,13 @@ white shepherd
 white tiger
 white wolf
 whitefish
+whiting
 wild boar
+wild dog
 wild trout
 wildcat
 wildebeest
+willie wagtail
 wire fox terrier
 wirehaired pointing griffon
 wolf
