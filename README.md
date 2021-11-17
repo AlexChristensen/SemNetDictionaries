@@ -8,7 +8,7 @@ devtools::install_github("AlexChristensen/SemNetDictionaries")
 # How To Use
 See our tutorial: https://psyarxiv.com/eht87/
 
-Christensen, A. P., & Kenett, Y. N. (under review). Semantic network analysis (SemNA): A tutorial on preprocessing, estimating, and analyzing    semantic networks. *PsyArXiv*. doi:10.31234/osf.io/eht87. OSF:10.17605/OSF.IO/HQXTC
+Christensen, A. P., & Kenett, Y. N. (in press). Semantic network analysis (SemNA): A tutorial on preprocessing, estimating, and analyzing semantic networks. *Psychological Methods*. doi:10.31234/osf.io/eht87. OSF:10.17605/OSF.IO/HQXTC
 
 # SemNetDictionaries
 Implements dictionaries that can be used in the [SemNetCleaner](https://github.com/AlexChristensen/SemNetCleaner) package. Also includes several functions aimed at facilitating the text cleaning analysis in the [SemNetCleaner](https://github.com/AlexChristensen/SemNetCleaner) package. This package is designed to integrate and update word lists and dictionaries based on each user's individual needs by allowing users to store and save their own dictionaries.
