@@ -3,9 +3,9 @@
 \docType{data}
 \name{most_common.dictionary}
 \alias{most_common.dictionary}
-\title{General Dictionary}
+\title{Most Common Dictionary}
 \format{
-most_common.dictionary (vector, length = 10000)
+most_common.dictionary (vector, length = 9329)
 }
 \usage{
 data(most_common.dictionary)
