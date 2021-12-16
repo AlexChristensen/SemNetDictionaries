@@ -5,7 +5,7 @@
 \alias{coca.dictionary}
 \title{Corpus of Contemporary American English Dictionary}
 \format{
-coca.dictionary (vector, length = 80409)
+coca.dictionary (vector, length = 80381)
 }
 \usage{
 data(coca.dictionary)
