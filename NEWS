@@ -2,7 +2,11 @@ Changes in version 0.1.9
 
 o UPDATE: 'animals' dictionary and moniker glossaries
 
-o ADD: Google's 10,000 most common words to dictionaries (see `data("most_common")`)
+o ADD: Google's 10,000 most common words to dictionaries (see `data("most_common.dictionary")`)
+
+o ADD: Corpus of Contemporary American English dictionary (over 80,000 words; see `data("coca.dictionary")`)
+
+o ADD: Corpus of Contemporary American English word forms, which can be used as monikers (see `data("coca.moniker")`)
 
 
 Changes in version 0.1.8
