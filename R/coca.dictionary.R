@@ -13,7 +13,7 @@
 #' 
 #' @usage data(coca.dictionary)
 #' 
-#' @format coca.dictionary (vector, length = 80409)
+#' @format coca.dictionary (vector, length = 80381)
 #' 
 #' @keywords datasets
 #' 

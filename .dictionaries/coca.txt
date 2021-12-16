@@ -300,7 +300,6 @@ abysmally
 abyss
 abysses
 abyssinian
-ac
 acacia
 acacias
 academe
@@ -5532,7 +5531,6 @@ bazar
 bazillion
 bazooka
 bazookas
-bc
 be
 beach
 beach-front
@@ -10421,7 +10419,6 @@ cayenne
 cayman
 caymans
 cays
-cd
 cd-quality
 cd-rom
 cease
@@ -16985,7 +16982,6 @@ dazzlers
 dazzles
 dazzling
 dazzlingly
-de
 de-baathification
 de-emphasis
 de-emphasize
@@ -20112,7 +20108,6 @@ dizziness
 dizzy
 dizzying
 dizzyingly
-dj
 dna
 dna-based
 dns
@@ -21781,7 +21776,6 @@ effusion
 effusions
 effusive
 effusively
-eg
 egad
 egalitarian
 egalitarianism
@@ -23516,7 +23510,6 @@ estrus
 estuaries
 estuarine
 estuary
-et
 eta
 etas
 etc
@@ -26847,7 +26840,6 @@ flyweight
 flyweights
 flywheel
 flywheels
-fm
 foal
 foaled
 foaling
@@ -29143,7 +29135,6 @@ ghostwriters
 ghoul
 ghoulish
 ghouls
-gi
 giant
 giant-sized
 giantess
@@ -32919,7 +32910,6 @@ hiv-related
 hive
 hives
 hiya
-hm
 hmm
 hmmm
 hmo
@@ -34309,7 +34299,6 @@ idols
 idyll
 idyllic
 idylls
-ie
 if
 if-then
 if/when
@@ -37034,7 +37023,6 @@ iota
 iotas
 iowan
 iowans
-ip
 ipad
 ipecac
 iphone
@@ -37938,7 +37926,6 @@ juxtaposes
 juxtaposing
 juxtaposition
 juxtapositions
-ka
 ka-ching
 kabbalah
 kabbalist
@@ -38508,7 +38495,6 @@ kwanza
 kwanzaa
 kyrgyz
 l-shaped
-la
 laager
 lab
 lab-grown
@@ -44847,7 +44833,6 @@ mows
 moxie
 mozambican
 mozzarella
-mp
 mpeg
 mri
 mrna
@@ -47984,7 +47969,6 @@ oh-oh-oh
 ohioan
 ohioans
 oho
-oi
 oil
 oil-and-gas
 oil-based
@@ -48341,7 +48325,6 @@ onus
 onward
 onwards
 onyx
-oo
 oocyst
 oocysts
 oocyte
@@ -48361,7 +48344,6 @@ oozed
 oozes
 oozing
 oozy
-op
 op-ed
 opacification
 opacities
@@ -50726,9 +50708,7 @@ payroll
 payrolls
 pays
 paywall
-pc
 pda
-pe
 pea
 pea-green
 pea-size
@@ -52775,7 +52755,6 @@ pneumonia
 pneumonic
 pneumonitis
 pneumothorax
-po
 poach
 poached
 poacher
@@ -56879,7 +56858,6 @@ razzing
 razzle
 razzle-dazzle
 rbi
-re
 re-arrest
 re-create
 re-created
@@ -62131,7 +62109,6 @@ scythed
 scythes
 scythian
 scything
-se
 sea
 sea-based
 sea-change
@@ -63406,7 +63383,6 @@ sexualized
 sexually
 sexually-transmitted
 sexy
-sh
 shabbat
 shabbier
 shabbiest
@@ -70353,7 +70329,6 @@ t-shirt
 t-statistic
 t-test
 t-value
-ta
 tab
 tabasco
 tabbed
@@ -74298,7 +74273,6 @@ tuxedo
 tuxedoed
 tuxedos
 tuxes
-tv
 twaddle
 twang
 twanged
@@ -77782,7 +77756,6 @@ voyeurism
 voyeuristic
 voyeurs
 vroom
-vs
 vulgar
 vulgarities
 vulgarity
@@ -80405,5 +80378,4 @@ zydeco
 zygomatic
 zygote
 zygotes
-zz
 zzz
