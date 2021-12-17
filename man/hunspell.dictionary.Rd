@@ -5,13 +5,13 @@
 \alias{hunspell.dictionary}
 \title{hunspell Dictionary}
 \format{
-hunspell.dictionary (vector, length = 38530)
+hunspell.dictionary (vector, length = 62893)
 }
 \usage{
 data(hunspell.dictionary)
 }
 \description{
-A general dictionary of over 38,000 words from the hunspell dictionary derived from
+A general dictionary of over 62,000 words from the hunspell dictionary derived from
 \href{http://wordlist.aspell.net/dicts/}{http://wordlist.aspell.net/dicts/}.
 }
 \details{
