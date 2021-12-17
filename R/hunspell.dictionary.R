@@ -1,7 +1,7 @@
 #hunspell Dictionary----
 #' hunspell Dictionary
 #'
-#' A general dictionary of over 38,000 words from the hunspell dictionary derived from
+#' A general dictionary of over 62,000 words from the hunspell dictionary derived from
 #' \href{http://wordlist.aspell.net/dicts/}{http://wordlist.aspell.net/dicts/}.
 #' 
 #' To add additional words to the dictionary, please make an
@@ -13,7 +13,7 @@
 #' 
 #' @usage data(hunspell.dictionary)
 #' 
-#' @format hunspell.dictionary (vector, length = 38530)
+#' @format hunspell.dictionary (vector, length = 62893)
 #' 
 #' @keywords datasets
 #' 
