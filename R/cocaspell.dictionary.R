@@ -13,7 +13,7 @@
 #' 
 #' @usage data(cocaspell.dictionary)
 #' 
-#' @format cocaspell.dictionary (vector, length = 109379)
+#' @format cocaspell.dictionary (vector, length = 109169)
 #' 
 #' @keywords datasets
 #' 
