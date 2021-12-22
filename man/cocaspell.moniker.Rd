@@ -3,18 +3,18 @@
 \docType{data}
 \name{cocaspell.moniker}
 \alias{cocaspell.moniker}
-\title{Corpus of Contemporary American English Moniker}
+\title{Corpus of Contemporary American English and Hunspell Moniker}
 \format{
-cocaspell.moniker (list, length = 20267)
+cocaspell.moniker (list, length = 29610)
 }
 \usage{
 data(cocaspell.moniker)
 }
 \description{
-A database of word forms for the Corpus of Contemporary American English dictionary
+A database of word forms for the Corpus of Contemporary American English and Hunspell dictionaries
 }
 \details{
-To add additional COCA monikers to the database, please submit a pull
+To add additional COCA and Hunspell monikers to the database, please submit a pull
 request or issue to \href{https://github.com/AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}
 }
 \examples{
