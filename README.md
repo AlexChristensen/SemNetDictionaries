@@ -3,7 +3,13 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)[![Downloads Total](https://cranlogs.r-pkg.org/badges/grand-total/SemNetDictionaries?color=brightgreen)](https://cran.r-project.org/package=SemNetDictionaries) [![Downloads per month](http://cranlogs.r-pkg.org/badges/SemNetDictionaries?color=brightgreen)](https://cran.r-project.org/package=SemNetDictionaries) 
 
 # How To Install
+```
+if(!"devtools" %in% row.names(installed.packages())){
+  install.packages("devtools")
+}
+
 devtools::install_github("AlexChristensen/SemNetDictionaries")
+```
 
 # How To Use
 See our tutorial: https://psyarxiv.com/eht87/
