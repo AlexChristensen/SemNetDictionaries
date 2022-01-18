@@ -2,6 +2,15 @@
 server <- function(input, output, session)
 {
   
+  # Get screen width
+  # output$screen_width <- renderUI({
+  #   
+  #   HTML(
+  #     input$GetScreenWidth
+  #   )
+  #   
+  # })
+  
   # Set up QWERTY keyboard
   # (from https://stackoverflow.com/questions/42089812/plot-keyboard-layout-in-r#42090533)
   # Thanks to Haboryme
@@ -46,6 +55,74 @@ server <- function(input, output, session)
   shinyjs::hide("guess_button")
   shinyjs::hide("new_button")
   shinyjs::hide("reset_button")
+  
+  # Send instructions
+  instruction_frame <<- data.frame(
+    xmin=seq(2.5, (1.5 + 5), 1),
+    xmax=seq(3.25, (2.5 + 5), 1),
+    ymin=rep(1, 5),
+    ymax=rep(2, 5),
+    value=rep("", 5)
+  )
+  instruction_frame$value <- c("W", "O", "R", "D", "S")
+  
+  ## Correct letter
+  correct_fill <- c(green_color, rep(default, 4))
+  correct_color <- c(NA, rep(border, 4))
+  
+  correct_plot <- ggplot2::ggplot(instruction_frame, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+    ggplot2::geom_rect(color=correct_color, fill=correct_fill, lwd=1.25) + 
+    ggplot2::geom_text(aes(
+      x=(xmin+xmax)/2,y=(ymin+ymax)/2,label=value
+    ),size=10, color = "white")+
+    ggplot2::theme_void()
+  
+  ## Letter in word
+  in_word_fill <- c(default, yellow_color, rep(default, 3))
+  in_word_color <- c(border, NA, rep(border, 3))
+  
+  in_word_plot <- ggplot2::ggplot(instruction_frame, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+    ggplot2::geom_rect(color=in_word_color, fill=in_word_fill, lwd=1.25) + 
+    ggplot2::geom_text(aes(
+      x=(xmin+xmax)/2,y=(ymin+ymax)/2,label=value
+    ),size=10, color = "white")+
+    ggplot2::theme_void()
+  
+  ## Bad letter
+  bad_fill <- c(rep(default, 2), grey_color, rep(default, 2))
+  bad_color <- c(rep(border, 2), NA, rep(border, 2))
+  
+  bad_plot <- ggplot2::ggplot(instruction_frame, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+    ggplot2::geom_rect(color=bad_color, fill=bad_fill, lwd=1.25) + 
+    ggplot2::geom_text(aes(
+      x=(xmin+xmax)/2,y=(ymin+ymax)/2,label=value
+    ),size=10, color = "white")+
+    ggplot2::theme_void()
+  
+  # Make grid
+  shinyalert::shinyalert(
+    title = "How to Play",
+    html = TRUE,
+    text = tagList(
+      renderText({"Guess the WORDLE in length of word + 1 tries."}),
+      br(),
+      renderText({"Each guess must be a valid word with the same length as the WORDLE."}),
+      br(),
+      renderPlot({correct_plot}, height = 75),
+      br(),
+      renderText({"The letter 'W' is in the correct spot."}),
+      br(),
+      renderPlot({in_word_plot}, height = 75),
+      br(),
+      renderText({"The letter 'O' is in the word but the wrong spot."}),
+      br(),
+      renderPlot({bad_plot}, height = 75),
+      br(),
+      renderText({"The letter 'R' is not in the word in any spot."})
+    ),
+    size = "m",
+    closeOnClickOutside = TRUE
+  )
   
   # Get words in dictionary
   observeEvent(input$go_button, {
@@ -136,7 +213,7 @@ server <- function(input, output, session)
     shinyjs::show("reset_button")
     
     # Send frames
-    output$frames <- renderPlot({frame_grid}, height = 50 * length(frame_grid), width = 400)
+    output$frames <- renderPlot({frame_grid})
   
     # Send keyboard
     output$keyboard <- renderPlot({key_plot})
@@ -147,8 +224,8 @@ server <- function(input, output, session)
   observeEvent(input$guess_button, {
     
     # Obtain guess
-    guess <<- trimws(input$guess_input)
-    
+    guess <<- tolower(trimws(input$guess_input))
+ 
     # Check if word in dictionary
     if(!guess %in% SemNetDictionaries::cocaspell.dictionary){
       
@@ -411,7 +488,7 @@ server <- function(input, output, session)
       )
       
       # Send frames
-      output$frames <- renderPlot({frame_grid}, height = 50 * length(frame_grid), width = 400)
+      output$frames <- renderPlot({frame_grid})
       
       
       # Send keyboard
@@ -422,33 +499,33 @@ server <- function(input, output, session)
         session, inputId = "guess_input", label = "Type Guess", value = ""
       )
       
-    }
-    
-    # Check if solved
-    if(all(guess_letters == word_letters)){
+      # Check if solved
+      if(all(guess_letters == word_letters)){
+        
+        shinyalert::shinyalert(
+          title = "You guessed the word!",
+          text = "Press 'New Word' to play again.",
+          type = "success"
+        )
+        
+        # Show/hide
+        shinyjs::show("new_button")
+        
+      }
       
-      shinyalert::shinyalert(
-        title = "You guessed the word!",
-        text = "Press 'New Word' to play again.",
-        type = "success"
-      )
-      
-      # Show/hide
-      shinyjs::show("new_button")
-
-    }
-    
-    # Check if maximum number of guesses reached
-    if(guess_length == guess_count){
-      
-      shinyalert::shinyalert(
-        title = "You ran out of guesses!",
-        text = paste("The word was:", word, "\n\nPress 'New Word' to play again."),
-        type = "warning"
-      )
-      
-      # Show/hide
-      shinyjs::show("new_button")
+      # Check if maximum number of guesses reached
+      if(guess_length == guess_count){
+        
+        shinyalert::shinyalert(
+          title = "You ran out of guesses!",
+          text = paste("The word was:", word, "\n\nPress 'New Word' to play again."),
+          type = "warning"
+        )
+        
+        # Show/hide
+        shinyjs::show("new_button")
+        
+      }
       
     }
       
@@ -575,7 +652,7 @@ server <- function(input, output, session)
     shinyjs::show("reset_button")
     
     # Send frames
-    output$frames <- renderPlot({frame_grid}, height = 50 * length(frame_grid), width = 400)
+    output$frames <- renderPlot({frame_grid})
     
     # Send keyboard
     output$keyboard <- renderPlot({key_plot})
