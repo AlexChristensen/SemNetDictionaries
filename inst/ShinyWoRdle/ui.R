@@ -44,6 +44,8 @@ ui <- fluidPage(
       # Side bar
       sidebarPanel(
         
+        width = 5,
+        
         # Set number of letters in words
         fluidRow(
           column(12, align="center",
@@ -102,6 +104,8 @@ ui <- fluidPage(
     
     # Main panel
     mainPanel(
+      
+      width = 7,
       
       fluidRow(
         column(12, align="center",

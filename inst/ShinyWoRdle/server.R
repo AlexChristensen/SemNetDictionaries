@@ -106,21 +106,21 @@ server <- function(input, output, session)
     text = tagList(
       renderText({"Guess the WORDLE in length of word + 1 tries."}),
       br(),
-      renderText({"Each guess must be a valid word with the same length as the WORDLE."}),
+      renderText({"Each guess must be a valid word."}),
       br(),
-      renderPlot({correct_plot}, height = 75),
+      renderPlot({correct_plot}, height = 50, width = 300),
       br(),
       renderText({"The letter 'W' is in the correct spot."}),
       br(),
-      renderPlot({in_word_plot}, height = 75),
+      renderPlot({in_word_plot}, height = 50, width = 300),
       br(),
       renderText({"The letter 'O' is in the word but the wrong spot."}),
       br(),
-      renderPlot({bad_plot}, height = 75),
+      renderPlot({bad_plot}, height = 50, width = 300),
       br(),
       renderText({"The letter 'R' is not in the word in any spot."})
     ),
-    size = "m",
+    size = "s",
     closeOnClickOutside = TRUE
   )
   
