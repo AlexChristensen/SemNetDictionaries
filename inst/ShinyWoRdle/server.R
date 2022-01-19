@@ -511,10 +511,7 @@ server <- function(input, output, session)
         # Show/hide
         shinyjs::show("new_button")
         
-      }
-      
-      # Check if maximum number of guesses reached
-      if(guess_length == guess_count){
+      }else if(guess_length == guess_count){# Check if maximum number of guesses reached
         
         shinyalert::shinyalert(
           title = "You ran out of guesses!",
