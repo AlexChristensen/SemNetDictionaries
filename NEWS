@@ -2,6 +2,8 @@ Changes in version 0.2.1
 
 o ADD: Shiny app to play Wordle
 
+o FIX: all uppercase letters to lowercase letters in dictionaries
+
 
 Changes in version 0.2.0
 
