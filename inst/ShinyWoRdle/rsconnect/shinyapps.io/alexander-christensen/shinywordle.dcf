@@ -5,7 +5,7 @@ account: alexander-christensen
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5454494
-bundleId: 5485812
+bundleId: 5496436
 url: https://alexander-christensen.shinyapps.io/shinywordle/
-when: 1642611899.6369
-lastSyncTime: 1642611899.6369
+when: 1642854083.75752
+lastSyncTime: 1642854083.75752
