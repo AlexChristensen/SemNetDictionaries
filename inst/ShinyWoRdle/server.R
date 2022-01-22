@@ -70,9 +70,9 @@ server <- function(input, output, session)
   correct_fill <- c(green_color, rep(default, 4))
   correct_color <- c(NA, rep(border, 4))
   
-  correct_plot <- ggplot2::ggplot(instruction_frame, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+  correct_plot <- ggplot2::ggplot(instruction_frame, ggplot2::aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
     ggplot2::geom_rect(color=correct_color, fill=correct_fill, lwd=1.25) + 
-    ggplot2::geom_text(aes(
+    ggplot2::geom_text(ggplot2::aes(
       x=(xmin+xmax)/2,y=(ymin+ymax)/2,label=value
     ),size=10, color = "white")+
     ggplot2::theme_void()
@@ -81,9 +81,9 @@ server <- function(input, output, session)
   in_word_fill <- c(default, yellow_color, rep(default, 3))
   in_word_color <- c(border, NA, rep(border, 3))
   
-  in_word_plot <- ggplot2::ggplot(instruction_frame, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+  in_word_plot <- ggplot2::ggplot(instruction_frame, ggplot2::aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
     ggplot2::geom_rect(color=in_word_color, fill=in_word_fill, lwd=1.25) + 
-    ggplot2::geom_text(aes(
+    ggplot2::geom_text(ggplot2::aes(
       x=(xmin+xmax)/2,y=(ymin+ymax)/2,label=value
     ),size=10, color = "white")+
     ggplot2::theme_void()
@@ -92,9 +92,9 @@ server <- function(input, output, session)
   bad_fill <- c(rep(default, 2), grey_color, rep(default, 2))
   bad_color <- c(rep(border, 2), NA, rep(border, 2))
   
-  bad_plot <- ggplot2::ggplot(instruction_frame, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+  bad_plot <- ggplot2::ggplot(instruction_frame, ggplot2::aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
     ggplot2::geom_rect(color=bad_color, fill=bad_fill, lwd=1.25) + 
-    ggplot2::geom_text(aes(
+    ggplot2::geom_text(ggplot2::aes(
       x=(xmin+xmax)/2,y=(ymin+ymax)/2,label=value
     ),size=10, color = "white")+
     ggplot2::theme_void()
@@ -106,7 +106,7 @@ server <- function(input, output, session)
     text = tagList(
       renderText({"Guess the WORDLE in length of word + 1 tries."}),
       br(),
-      renderText({"Each guess must be a valid word."}),
+      renderText({"Each guess must be a valid word"}),
       br(),
       renderPlot({correct_plot}, height = 50, width = 300),
       br(),
@@ -128,9 +128,9 @@ server <- function(input, output, session)
   observeEvent(input$go_button, {
     
     # Keyboard plot
-    key_plot <<- ggplot2::ggplot(keyboard, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+    key_plot <<- ggplot2::ggplot(keyboard, ggplot2::aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
       ggplot2::geom_rect(color=key_color, fill=key_fill, lwd=1.25) + 
-      ggplot2::geom_text(aes(
+      ggplot2::geom_text(ggplot2::aes(
         x=(xmin+xmax)/2,y=(ymin+ymax)/2,label=value
       ),size=10, color = "white") +
       ggplot2::theme_void() + 
@@ -178,6 +178,13 @@ server <- function(input, output, session)
       ymin=rep(1, word_length),
       ymax=rep(2, word_length),
       value=rep("", word_length)
+    )
+    
+    # Set up levels for guess frame
+    guess_frame$value <- factor(
+      guess_frame$value, levels = c(
+        "", LETTERS
+      )
     )
     
     # Set up frame colors
@@ -274,38 +281,6 @@ server <- function(input, output, session)
       # Indices for guess letters in word letters
       if(any(guess_letters %in% word_letters)){
         
-        # Indices for guess letters
-        in_index <<- which(guess_letters %in% word_letters)
-        
-        # Determine how many guess letters are in word
-        guess_letter_freq <<- table(guess_letters[in_index])
-        
-        # Remove extraneous indices
-        if(any(word_letter_freq[names(guess_letter_freq)] < guess_letter_freq)){
-          
-          # Match letters
-          match_extra <- intersect(names(guess_letter_freq), names(word_letter_freq))
-          
-          # Target extraneous
-          target_extra <<- which(guess_letter_freq[match_extra] > word_letter_freq[match_extra])
-          target_extra <<- guess_letter_freq[match_extra][target_extra] - word_letter_freq[match_extra][target_extra]
-          
-          # Remove from guess letters
-          for(i in seq_along(target_extra)){
-            
-            # Extraneous letter
-            extra_letter <<- in_index[guess_letters[in_index] == names(target_extra)[i]][1:target_extra]
-            
-            # Update guess index in word
-            in_index <<- setdiff(in_index, extra_letter)
-            
-          }
-          
-        }
-        
-        # Update guess index
-        guess_index <<- setdiff(guess_index, in_index)
-        
         # Indices for guess letters that match word letters
         if(any(guess_letters == word_letters)){
           
@@ -339,7 +314,7 @@ server <- function(input, output, session)
           }
           
           # Update indices for letters in word
-          in_index <<- setdiff(in_index, matched_index)
+          # in_index <<- setdiff(in_index, matched_index)
           
           # Update guess index
           guess_index <<- setdiff(guess_index, matched_index)
@@ -347,6 +322,41 @@ server <- function(input, output, session)
         }else{
           matched_index <<- NULL
         }
+        
+        # Indices for guess letters
+        in_index <<- which(guess_letters %in% word_letters)
+        
+        # Determine how many guess letters are in word
+        guess_letter_freq <<- table(guess_letters[in_index])
+        
+        # Remove extraneous indices
+        if(any(word_letter_freq[names(guess_letter_freq)] < guess_letter_freq)){
+          
+          # Match letters
+          match_extra <- intersect(names(guess_letter_freq), names(word_letter_freq))
+          
+          # Target extraneous
+          target_extra <<- which(guess_letter_freq[match_extra] > word_letter_freq[match_extra])
+          target_extra <<- guess_letter_freq[match_extra][target_extra] - word_letter_freq[match_extra][target_extra]
+          
+          # Remove from guess letters
+          for(i in seq_along(target_extra)){
+            
+            # Extraneous letter
+            extra_letter <<- rev(in_index[guess_letters[in_index] == names(target_extra)[i]])[1:target_extra]
+            
+            # Update guess index in word
+            in_index <<- setdiff(in_index, extra_letter)
+            
+          }
+          
+        }
+        
+        # Update indices for letters in word
+        in_index <<- setdiff(in_index, matched_index)
+        
+        # Update guess index
+        guess_index <<- setdiff(guess_index, in_index)
         
       }else{
         
