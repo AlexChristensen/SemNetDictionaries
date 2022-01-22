@@ -292,36 +292,7 @@ server <- function(input, output, session)
           
           # Indices for guess letters
           matched_index <<- which(guess_letters == word_letters)
-          
-          # Determine how many guess letters are in word
-          guess_letter_freq <<- table(guess_letters[matched_index])
-          
-          # Remove extraneous indices
-          if(any(word_letter_freq[names(guess_letter_freq)] < guess_letter_freq)){
-            
-            # Match letters
-            match_extra <- intersect(names(guess_letter_freq), names(word_letter_freq))
-            
-            # Target extraneous
-            target_extra <<- which(guess_letter_freq[match_extra] > word_letter_freq[match_extra])
-            target_extra <<- guess_letter_freq[match_extra][target_extra] - word_letter_freq[match_extra][target_extra]
-            
-            # Remove from guess letters
-            for(i in seq_along(target_extra)){
-              
-              # Extraneous letter
-              extra_letter <<- matched_index[guess_letters[matched_index] == names(target_extra)[i]][1:target_extra]
-              
-              # Update guess index in word
-              matched_index <<- setdiff(matched_index, extra_letter)
-              
-            }
-            
-          }
-          
-          # Update indices for letters in word
-          # in_index <<- setdiff(in_index, matched_index)
-          
+
           # Update guess index
           guess_index <<- setdiff(guess_index, matched_index)
           
@@ -330,36 +301,55 @@ server <- function(input, output, session)
         }
         
         # Indices for guess letters
-        in_index <<- which(guess_letters %in% word_letters)
-        
-        # Determine how many guess letters are in word
-        guess_letter_freq <<- table(guess_letters[in_index])
-        
-        # Remove extraneous indices
-        if(any(word_letter_freq[names(guess_letter_freq)] < guess_letter_freq)){
+        if(is.null(matched_index)){
+
+          # Set in index for all letters
+          in_index <<- which(guess_letters %in% word_letters)
           
-          # Match letters
-          match_extra <- intersect(names(guess_letter_freq), names(word_letter_freq))
+        }else{
           
-          # Target extraneous
-          target_extra <<- which(guess_letter_freq[match_extra] > word_letter_freq[match_extra])
-          target_extra <<- guess_letter_freq[match_extra][target_extra] - word_letter_freq[match_extra][target_extra]
+          # Indices for guess letters
+          in_index <<- which(guess_letters %in% word_letters)
           
-          # Remove from guess letters
-          for(i in seq_along(target_extra)){
+          # Determine how many guess letters are in word
+          guess_letter_freq <<- table(guess_letters[in_index])
+          
+          # Remove extraneous indices
+          if(any(word_letter_freq[names(guess_letter_freq)] < guess_letter_freq)){
             
-            # Extraneous letter
-            extra_letter <<- rev(in_index[guess_letters[in_index] == names(target_extra)[i]])[1:target_extra]
+            # Match letters
+            match_extra <<- intersect(names(guess_letter_freq), names(word_letter_freq))
             
-            # Update guess index in word
-            in_index <<- setdiff(in_index, extra_letter)
+            # Target extraneous
+            target_extra <<- which(guess_letter_freq[match_extra] > word_letter_freq[match_extra])
+            target_extra <<- guess_letter_freq[match_extra][target_extra] - word_letter_freq[match_extra][target_extra]
+            
+            # Obtain table match frequencies
+            matched_letter_freq <<- table(guess_letters[matched_index])
+            
+            # Match letters
+            match_extra <<- intersect(names(matched_letter_freq), names(target_extra))
+            
+            # Target extraneous
+            target_extra <<- target_extra + matched_letter_freq[match_extra]
+            
+            # Remove from guess letters
+            for(i in seq_along(target_extra)){
+              
+              # Extraneous letter
+              extra_letter <<- rev(in_index[guess_letters[in_index] == names(target_extra)[i]])[1:target_extra]
+              
+              # Update guess index in word
+              in_index <<- setdiff(in_index, extra_letter)
+              
+            }
             
           }
           
+          # Update indices for letters in word
+          in_index <<- setdiff(in_index, matched_index)
+          
         }
-        
-        # Update indices for letters in word
-        in_index <<- setdiff(in_index, matched_index)
         
         # Update guess index
         guess_index <<- setdiff(guess_index, in_index)
