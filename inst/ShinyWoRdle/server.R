@@ -15,6 +15,8 @@ server <- function(input, output, session)
   # (from https://stackoverflow.com/questions/42089812/plot-keyboard-layout-in-r#42090533)
   # Thanks to Haboryme
   
+  # Initialize bindings ----
+  
   ## First row
   df1 <<- data.frame(xmin=c(1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5),
                  xmax=c(2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5),
@@ -55,6 +57,8 @@ server <- function(input, output, session)
   shinyjs::hide("guess_button")
   shinyjs::hide("new_button")
   shinyjs::hide("reset_button")
+  
+  # Instructions ----
   
   # Send instructions
   instruction_frame <<- data.frame(
@@ -123,6 +127,8 @@ server <- function(input, output, session)
     size = "s",
     closeOnClickOutside = TRUE
   )
+  
+  # Initialize word and UI ----
   
   # Get words in dictionary
   observeEvent(input$go_button, {
@@ -201,9 +207,7 @@ server <- function(input, output, session)
     
     # Frame list
     frame_list <<- lapply(1:guess_length, function(i){
-      
         frame_plot
-      
     })
 
     # Frame grid
@@ -226,6 +230,8 @@ server <- function(input, output, session)
     output$keyboard <- renderPlot({key_plot})
     
   })
+  
+  # Guess ----
   
   # Get guess
   observeEvent(input$guess_button, {
@@ -365,12 +371,16 @@ server <- function(input, output, session)
         
       }
       
+      # Guess frame
+      guess_frame$value <- factor(
+        guess_letters, levels = c(
+          "", LETTERS
+        )
+      )
+      
       # Default update to guess letters
       if(length(guess_index) != 0){
-        
-        # Update guess frame
-        guess_frame[guess_index, "value"] <- guess_letters[guess_index]
-        
+
         # Update colors
         ## Keyboard
         names(key_fill) <- keyboard$value
@@ -406,10 +416,7 @@ server <- function(input, output, session)
       
       # Set up current frame
       if(length(in_index) != 0){
-        
-        # Update guess frame
-        guess_frame[in_index, "value"] <- guess_letters[in_index]
-        
+      
         # Update colors
         ## Keyboard
         names(key_fill) <- keyboard$value
@@ -446,9 +453,6 @@ server <- function(input, output, session)
       
       # Set up current frame
       if(length(matched_index) != 0){
-        
-        # Update guess frame
-        guess_frame[matched_index, "value"] <- guess_letters[matched_index]
         
         # Update colors
         ## Keyboard
@@ -537,6 +541,8 @@ server <- function(input, output, session)
     }
       
   })
+  
+  # New word ----
   
   # New word button
   observeEvent(input$new_button, {
@@ -666,6 +672,8 @@ server <- function(input, output, session)
     
   })
 
+  # New letters ----
+  
   # Reset button
   observeEvent(input$reset_button, {
     
