@@ -2,12 +2,12 @@
 % Please edit documentation in R/ShinyWoRdle.R
 \name{ShinyWoRdle}
 \alias{ShinyWoRdle}
-\title{Shiny App to Play \href{WoRdle}{https://www.powerlanguage.co.uk/wordle/}}
+\title{Shiny App to Play WoRdle}
 \usage{
 ShinyWoRdle()
 }
 \description{
-An interactive Shiny application for playing \href{WoRdle}{https://www.powerlanguage.co.uk/wordle/}
+An interactive Shiny application for playing WoRdle
 }
 \examples{
 
