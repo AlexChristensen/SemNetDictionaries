@@ -29,22 +29,19 @@ Defaults to \code{"envir"}.
 
 \itemize{
 
-\item{\code{"envir"}:}
-{Returns dictionary as a vector object to \code{R}'s global environment}
+\item \code{"envir"}: Returns dictionary as a vector object to
+\code{R}'s global environment
 
-\item{\code{"wd"}:}
-{Saves dictionary to working directory. Useful for storing dictionaries
-alongside projects}
+\item \code{"wd"}: Saves dictionary to working directory.
+Useful for storing dictionaries alongside projects
 
-\item{\code{"choose"}:}
-{User chooses a directory for more permanent storage. This will
-allow you to use this dictionary in the future}
+\item \code{"choose"}: User chooses a directory for more permanent
+storage. This will allow you to use this dictionary in the future
 
-\item{\code{"path"}:}
-{User specifies a path to a directory if it is already known. This
-will allow direct updates to the directory and bypass the prompts in
+\item \code{"path"}: User specifies a path to a directory if it is already known.
+This will allow direct updates to the directory and bypass the prompts in
 the save/update menus. This will also allow you to use
-this dictionary in the future}
+this dictionary in the future
 
 }}
 
@@ -85,17 +82,15 @@ You have two options:
 
 \itemize{
 
-\item{\code{Yes} (or \code{1}):}
-{Gives this function permission to
+\item \code{Yes} (or \code{1}): Gives this function permission to
 save (or update) your dictionary to a chosen directory.
 If \code{save.location = "envir"}, your file will
-be deleted after closing \code{R}}
+be deleted after closing \code{R}
 
-\item{\code{No} (or \code{2}):}
-{Does NOT give this function permission to save
+\item \code{No} (or \code{2}): Does NOT give this function permission to save
 your dictionary to your computer. \code{save.location = "envir"} will
 always return your dictionary as a vector object to \code{R}'s
-global environment}
+global environment
 
 }
 
@@ -103,14 +98,13 @@ To save your dictionary file, you can either:
 
 \itemize{
 
-\item{Manually save:}
-{Use \link{saveRDS} and save using the \code{"*.dictionary"} suffix}
+\item Manually save: Use \link{saveRDS} and save using the \code{"*.dictionary"} suffix
 
-\item{\code{save.location = "choose"}:}
-{A file explorer menu will pop-up and a directory can be manually selected}
+\item \code{save.location = "choose"}: A file explorer menu will pop-up and a
+directory can be manually selected
 
-\item{\code{save.location = "path"}:}
-{The file will automatically be saved to the directory you provide}
+\item \code{save.location = "path"}: The file will automatically be saved to the
+directory you provide
 
 }
 
