@@ -5,3 +5,4 @@
 ^README\.md$
 ^\.gitignore$
 ^LICENSE$
+^tests$
