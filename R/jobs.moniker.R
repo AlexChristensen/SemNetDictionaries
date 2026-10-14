@@ -12,7 +12,7 @@
 #' 
 #' @usage data(jobs.moniker)
 #' 
-#' @format jobs.moniker (list, length = 117)
+#' @format jobs.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::jobs.moniker)})
 #' 
 #' @keywords datasets
 #' 

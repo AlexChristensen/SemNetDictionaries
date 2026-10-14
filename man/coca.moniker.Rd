@@ -5,7 +5,7 @@
 \alias{coca.moniker}
 \title{Corpus of Contemporary American English Moniker}
 \format{
-coca.moniker (list, length = 20267)
+coca.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::coca.moniker)})
 }
 \usage{
 data(coca.moniker)

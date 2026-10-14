@@ -5,7 +5,7 @@
 \alias{jobs.moniker}
 \title{Jobs Moniker}
 \format{
-jobs.moniker (list, length = 117)
+jobs.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::jobs.moniker)})
 }
 \usage{
 data(jobs.moniker)

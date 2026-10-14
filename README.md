@@ -1,4 +1,4 @@
-### CRAN 0.1.8 | GitHub 0.2.0
+### GitHub 0.3.0
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)[![Downloads Total](https://cranlogs.r-pkg.org/badges/grand-total/SemNetDictionaries?color=brightgreen)](https://cran.r-project.org/package=SemNetDictionaries) [![Downloads per month](http://cranlogs.r-pkg.org/badges/SemNetDictionaries?color=brightgreen)](https://cran.r-project.org/package=SemNetDictionaries) 
 
@@ -12,9 +12,9 @@ devtools::install_github("AlexChristensen/SemNetDictionaries")
 ```
 
 # How To Use
-See our tutorial: https://psyarxiv.com/eht87/
+See our tutorial: https://doi.org/10.1037/met0000463
 
-Christensen, A. P., & Kenett, Y. N. (in press). Semantic network analysis (SemNA): A tutorial on preprocessing, estimating, and analyzing semantic networks. *Psychological Methods*. doi:10.31234/osf.io/eht87. OSF:10.17605/OSF.IO/HQXTC
+Christensen, A. P., & Kenett, Y. N. (2021). Semantic network analysis (SemNA): A tutorial on preprocessing, estimating, and analyzing semantic networks. *Psychological Methods*. https://doi.org/10.1037/met0000463
 
 # SemNetDictionaries
 Implements dictionaries that can be used in the [SemNetCleaner](https://github.com/AlexChristensen/SemNetCleaner) package. Also includes several functions aimed at facilitating the text cleaning analysis in the [SemNetCleaner](https://github.com/AlexChristensen/SemNetCleaner) package. This package is designed to integrate and update word lists and dictionaries based on each user's individual needs by allowing users to store and save their own dictionaries.
@@ -24,3 +24,6 @@ The main goal for this package is to allow R users to feasibly generate and crea
 
 # Adding Dictionaries To SemNetDictionaries
 You can create your own dictionary by using the 'append.dictionary' function in this package. Once created, you can locate the dictionary on your computer using the 'find.dictionaries' function. Grab the dictionary data file ("YOUR_DICTIONARY_NAME.dictionary.rds") and upload your dictionary as an issue or pull request on this page. I will verify the dictionary and add it to the package as soon as possible.
+
+# Contributing To The Category Dictionaries And Monikers
+Suggestions for new words and variants (misspellings, plurals, alternate names) are welcome as issues.

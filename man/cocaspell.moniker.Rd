@@ -5,7 +5,7 @@
 \alias{cocaspell.moniker}
 \title{Corpus of Contemporary American English and Hunspell Moniker}
 \format{
-cocaspell.moniker (list, length = 29610)
+cocaspell.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::cocaspell.moniker)})
 }
 \usage{
 data(cocaspell.moniker)

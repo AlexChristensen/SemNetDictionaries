@@ -5,13 +5,13 @@
 \alias{fruits.dictionary}
 \title{Fruits Dictionary}
 \format{
-fruits.dictionary (vector, length = 488)
+fruits.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::fruits.dictionary)})
 }
 \usage{
 data(fruits.dictionary)
 }
 \description{
-A database of possible fruits responses (\emph{n} = 488)
+A database of possible fruits responses (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::fruits.dictionary)})
 }
 \details{
 To add additional fruits to the dictionary, please make an

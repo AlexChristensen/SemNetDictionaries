@@ -1,3 +1,60 @@
+Changes in version 0.3.0
+
+o UPDATE: `animals`, `fruits`, `vegetables`, `jobs`, `hot`, and `good` dictionaries (`animals` 1,252 to 1,285 words, `fruits` 488 to 481, `vegetables` 284 to 340, `jobs` 1,471 to 1,023, `hot` 281 to 273, `good` 284 to 316): misspellings, plurals, and spacing and hyphen variants are monikers instead of dictionary entries, words that are not in the category were removed (e.g., conifers in `fruits`, antonyms in `good`, first words of longer titles such as `"air"` in `jobs`), and common words were added
+
+o UPDATE: `animals`, `fruits`, `vegetables`, `jobs`, `hot`, and `good` monikers (`animals` 245 to 340 words, `fruits` 35 to 79, `vegetables` 35 to 70, `jobs` 117 to 152, `hot` 15 to 64, `good` 4 to 41): variants are lower case, every word is a dictionary entry, and a variant is no longer also a dictionary entry (the dictionary accepts its words before monikers are tried)
+
+o UPDATE: `hot` and `good` only share `"beautiful"`; a word is in the dictionary where it has its sense
+
+o UPDATE: `coca` and `cocaspell` monikers have lower case words (words that only differed in case are merged); the 31 `cocaspell` words with digits (e.g., `"mid-1700s"`, which `SemNetCleaner` could not recover) and the 5 `coca` words that are not dictionary entries were removed
+
+o UPDATE: `general` has `"cryptocurrency"` and not the typo `"acceleratorh"`, and `most_common` has no duplicates (9,318 words)
+
+o UPDATE: `load.dictionaries` and `load.monikers` keep what they load for the session, so repeated calls take under 1 ms (about 40 to 95 ms before), including single letters (`load.dictionaries("a")`)
+
+o UPDATE: `append.dictionary(textcleaner = TRUE)` inserts new words into a sorted dictionary instead of sorting it again when it is the dictionary that the previous call returned (about 290 ms to about 6 ms for `cocaspell`)
+
+o UPDATE: `load.dictionaries` gives a warning of class `semnet_dictionary_not_found` (a message before) for a dictionary that cannot be found, leaves it out, and returns `character(0)` (`NULL` before) when none are found
+
+o UPDATE: `load.dictionaries` accepts names in any case, ignores a `.dictionary` suffix, and only uses `add.path` (a path that does not exist is an error) for dictionaries that are not in the package
+
+o UPDATE: `load.dictionaries` looks for custom dictionaries in the global environment, `add.path`, the working directory, and `tempdir()`; it no longer searches the Desktop, Downloads, or the folders inside the working directory
+
+o UPDATE: `find.dictionaries` no longer searches the Desktop, Downloads, or the working directory recursively, finds dictionaries in the global environment, and returns nothing for a name that does not exist (it returned every dictionary)
+
+o UPDATE: `load.monikers` returns `character(0)` (`list()` with `vector = FALSE`) for dictionaries without monikers (`logical(0)` and `NA` before)
+
+o UPDATE: `dictionaries(quiet = FALSE)` prints the dictionaries (any value for `quiet` was quiet)
+
+o UPDATE: the startup message is plain text (no ANSI escape codes)
+
+o UPDATE: dependencies: `utils` is `Imports`; `easycsv`, `ggplot2`, `gridExtra`, `patchwork`, `shiny`, `shinyalert`, `shinyjs`, and `markdown` are dropped; `tcltk` (to choose a directory), `testthat`, and `withr` are `Suggests`
+
+o UPDATE: the vignette describes the monikers and the new `load.dictionaries` behavior
+
+o ADD: `append.dictionary(textcleaner = TRUE)` gives a warning of class `semnet_dictionary_words_not_saved` when the dictionary file already exists and the dictionary argument has words that the file does not have (only words that are not in the dictionary argument are added to an existing file, so those words were not saved)
+
+o ADD: `recursive` argument in `find.dictionaries` (default `FALSE`)
+
+o ADD: `testthat` tests (there were none), including tests of the rules for dictionaries and monikers and of the size of the installed data
+
+o ADD: GitHub workflow that runs `R CMD check` on Linux, macOS, and Windows
+
+o REMOVE: `ShinyWoRdle` (the Wordle site was removed) and `inst/ShinyWoRdle`
+
+o REMOVE: `package` argument of `append.dictionary` (defunct, it only worked on the maintainer's computer)
+
+o FIX: `load.dictionaries` failed with more than 10 words (a corpus) that include a single letter (e.g., `"a"`)
+
+o FIX: `load.dictionaries()` without input failed with `argument is of length zero`; it now stops with a clear error
+
+o FIX: `load.monikers` returned its input when it had more than 10 words
+
+o FIX: `append.dictionary(textcleaner = TRUE)` failed (`object 'dict.words' not found`) unless the name of the dictionary argument contained `.dictionary`; the dictionary is now the argument whose expression contains `dictionary` (a string such as `"dictionary"` is a new word) or, without one, the arguments after the first
+
+o FIX: `dictionaries` failed when the package was loaded from source (e.g., `devtools::load_all()`)
+
+
 Changes in version 0.2.1
 
 o ADD: Shiny app to play Wordle

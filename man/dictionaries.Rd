@@ -4,7 +4,7 @@
 \alias{dictionaries}
 \title{List Names of Dictionaries in 'SemNetDictionaries'}
 \usage{
-dictionaries(quiet)
+dictionaries(quiet = FALSE)
 }
 \arguments{
 \item{quiet}{Boolean.
@@ -13,6 +13,7 @@ Defaults to \code{FALSE}}
 }
 \value{
 Returns the names of dictionaries in \code{\link{SemNetDictionaries}}
+(invisibly unless \code{quiet = TRUE})
 }
 \description{
 A wrapper function to identify all dictionaries included in 

@@ -5,13 +5,13 @@
 \alias{general.dictionary}
 \title{General Dictionary}
 \format{
-general.dictionary (vector, length = 370103)
+general.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::general.dictionary)})
 }
 \usage{
 data(general.dictionary)
 }
 \description{
-A general dictionary of over 370,000 words (\emph{n} = 370,103) derived from
+A general dictionary of over 370,000 words (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::general.dictionary)}) derived from
 \href{https://github.com/dwyl/english-words}{https://github.com/dwyl/english-words}.
 All punctuation have been removed.
 }

@@ -5,7 +5,7 @@
 \alias{vegetables.moniker}
 \title{Vegetables Moniker}
 \format{
-vegetables.moniker (list, length = 35)
+vegetables.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::vegetables.moniker)})
 }
 \usage{
 data(vegetables.moniker)

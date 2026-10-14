@@ -1,175 +1,231 @@
 #' Load Dictionaries
 #' @description A wrapper function to load dictionaries into
-#' the 'SemNetCleaner' package. Searches for dictionaries in \code{R}'s global
-#' environment, the \code{\link{SemNetDictionaries}} package, and on your computer.
-#' Outputs a unique word list that is combined from all dictionaries entered 
-#' in the \code{dictionary} argument
-#' 
+#' the 'SemNetCleaner' package. Searches for dictionaries in the
+#' \code{\link{SemNetDictionaries}} package, \code{R}'s global
+#' environment, and a few directories on your computer.
+#' Outputs a unique word list that is combined from all dictionaries entered
+#' in the \code{...} argument
+#'
 #' @param ... Character.
-#' Dictionaries to load
-#' 
+#' Dictionaries to load. Dictionary names are not case sensitive for the
+#' dictionaries in \code{\link{SemNetDictionaries}} and for single letters.
+#' A \code{".dictionary"} suffix is ignored.
+#'
 #' Dictionaries in your global environment
 #' MUST be objects called \code{"*.dictionary"} (see examples)
-#' 
+#'
+#' More than 10 values that are not all dictionary names are treated as a
+#' corpus: the (lower case) words are returned as a sorted, unique vector
+#'
 #' @param add.path Character.
-#' Path to additional dictionaries to be found.
-#' DOES NOT search recursively (through all folders in path)
-#' to avoid time intensive search.
-#' Set to \code{"choose"} to open an interactive directory explorer
-#' 
-#' \code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in the \code{\link{SemNetDictionaries}} package
-#' 
-#' \code{\link[SemNetDictionaries]{find.dictionaries}} will identify dictionaries on your computer
-#' 
+#' Path to a directory with additional \code{"*.dictionary.rds"} files
+#' (see \code{\link{append.dictionary}}). The directory is NOT searched
+#' recursively. Set to \code{"choose"} to open an interactive directory explorer
+#'
+#' Dictionaries are looked for in this order: the \code{\link{SemNetDictionaries}}
+#' package (see \code{\link[SemNetDictionaries]{dictionaries}}), the global
+#' environment, \code{add.path}, the working directory, and \code{tempdir()}
+#' (see \code{\link[SemNetDictionaries]{find.dictionaries}})
+#'
 #' @return Returns a vector of unique words that have been combined
-#' and alphabetized from the specified dictionaries
-#' 
-#' @examples 
+#' and alphabetized from the specified dictionaries.
+#' If a dictionary cannot be found, a warning of class
+#' \code{"semnet_dictionary_not_found"} is given and the dictionary is left out
+#' (an empty \code{character} vector is returned when none are found)
+#'
+#' @examples
 #' # Find dictionaries to load
 #' dictionaries()
-#' 
+#'
 #' # Load "animals" dictionary
 #' load.dictionaries("animals")
-#' 
+#'
 #' # Create a dictionary
 #' new.dictionary <- append.dictionary("words", "are", "fun")
-#' 
+#'
 #' # Load created dictionary
 #' load.dictionaries("new")
-#' 
+#'
 #' # Load animals and new dictionary
 #' load.dictionaries("animals", "new")
-#' 
+#'
 #' # Single letter dictionary
 #' load.dictionaries("d")
-#' 
+#'
 #' # Multiple letters dictionary
 #' load.dictionaries("a", "d")
-#' 
+#'
 #' # Category and letters dictionary
 #' load.dictionaries("animals", "a")
-#' 
+#'
 #' @author Alexander Christensen <alexpaulchristensen@gmail.com>
-#' 
-#' @importFrom utils data
-#' @importFrom stats na.omit
-#' 
+#'
 #' @export
 # Load Dictionary Function
-# Updated 08.09.2020
+# Updated 14.10.2026
 load.dictionaries <- function (..., add.path = NULL)
 {
-    # list dictionaries
-    dictionary <- unlist(list(...))
-    
-    #set in case of corpus being used
-    if(length(dictionary)>10)
-    {dict.list <- tolower(unlist(dictionary))
-    }else{
-        
-        #initialize dictionary list
-        dict.list <- list()
-        
-        #first look in 'SemNetDictionaries' and environment dictionaries
-        sndict <- dictionaries(TRUE)
-        #grab dictionaries from environment and remove ".dictionary"
-        envdict <- gsub(".dictionary","",ls(envir=.GlobalEnv)[grep(".dictionary",ls(envir=.GlobalEnv))])
-        #also look in package folder
-        pkgdict <- gsub(".dictionary.rds","",list.files(system.file("Data", package = "SemNetDictionaries")))[grep(".dictionary",list.files(system.file("Data", package = "SemNetDictionaries")))]
-        
-        snenvdict <- c(sndict,envdict,pkgdict)
-        
-        if(all(dictionary %in% snenvdict))
-        {
-            for(i in 1:length(dictionary))
-            {
-                #remove any .dictionary if added by user
-                dict <- gsub(".dictionary.*","",dictionary[i])
-                
-                #add dictionary to end of dict.name for data loading
-                if(!"dictionary" %in% dict)
-                {dict.long <- paste(dict,"dictionary",sep=".")}
-                
-                #check if dictionary is in 'SemNetDictionaries' or on computer
-                if(dict %in% sndict)
-                {
-                    #load dictionary data
-                    dict.list[[i]] <- get(data(list = dict.long,envir = environment()))
-                    
-                }else if(dict %in% envdict)
-                {
-                    #get dictionary from environment
-                    dict.list[[i]] <- get(dict.long)
-                }else if(dict %in% pkgdict)
-                {
-                    #get dictionary from package
-                    dict.list[[i]] <- readRDS(paste(system.file("Data", package = "SemNetDictionaries"),"/",dict.long,".rds",sep=""))
-                }
-            }
-        }else{
-            
-            #update dictionaries with user-defined dictionaries
-            find.dict <- find.dictionaries(add.path = add.path)
-            name.dict <- find.dict$names
-            path.dict <- find.dict$files
-            envdict <- gsub(".dictionary","",ls(envir=.GlobalEnv)[grep(".dictionary",ls(envir=.GlobalEnv))])
-            
-            #identify number of dictionaries
-            for(i in 1:length(dictionary))
-            {
-                #remove any .dictionary if added by user
-                dict <- gsub(".dictionary.*","",dictionary[i])
-                
-                #add dictionary to end of dict.name for data loading
-                if(!"dictionary" %in% unlist(strsplit(dict,split="[.]")))
-                {dict.long <- paste(dict,"dictionary",sep=".")}
-                
-                #check if dictionary is in 'SemNetDictionaries' or on computer
-                if(dict %in% sndict)
-                {
-                    #load dictionary data
-                    dict.list[[i]] <- get(data(list = dict.long,envir = environment()))
-                    
-                }else if(dict %in% name.dict)
-                {
-                    #target dictionary in path
-                    target <- which(dict==name.dict)
-                    
-                    #load dictionary data
-                    dict.list[[i]] <- readRDS(path.dict[target])
-                    
-                }else if(dict %in% envdict)
-                {
-                    #get dictionary from environment
-                    dict.list[[i]] <- get(dict.long)
-                
-                }else if(!tolower(dict) %in% letters)
-                {message(paste(dict,"was not found in existing dictionaries.",sep=" "))}
-            }
-        }
-        
-    }
-    
-    #single letter dictionaries
-    if(any(tolower(dictionary) %in% letters))
+    # List dictionaries
+    dictionary <- unlist(list(...), use.names = FALSE)
+
+    # Check for input
+    if(length(dictionary) == 0L)
+    {stop("At least one dictionary must be specified.", call. = FALSE)}
+
+    # Ensure character and remove missing values
+    dictionary <- as.character(dictionary)
+    dictionary <- dictionary[!is.na(dictionary)]
+
+    if(length(dictionary) == 0L)
+    {stop("At least one dictionary must be specified.", call. = FALSE)}
+
+    # Clean names
+    clean <- .clean_name(dictionary, "dictionary")
+
+    # Dictionaries in 'SemNetDictionaries' (not case sensitive) and single letters
+    sndict <- dictionaries(TRUE)
+    is.pkg <- tolower(clean) %in% sndict
+    is.letter <- !is.pkg & tolower(clean) %in% letters
+
+    # Additional path (only needed for dictionaries that do not ship with the package)
+    if(!all(is.pkg | is.letter))
+    {add.path <- .resolve_add_path(add.path)
+    }else{add.path <- NULL}
+
+    # Set in case of corpus being used
+    if(length(dictionary) > .corpus_threshold)
     {
-        #letter list
-        let.list <- list()
-        
-        #target letter(s)
-        target.let <- na.omit(match(letters,tolower(dictionary)))
-        
-        #identify target letter(s)
-        for(j in 1:length(target.let))
-        {let.list[[j]] <- SemNetDictionaries::general.dictionary[grep(paste("^",tolower(dictionary)[target.let[j]],sep=""), SemNetDictionaries::general.dictionary)]}
-        
-        #unlist and add to dict.list
-        dict.list[[i+1]] <- sort(unique(unlist(let.list)))
+        # Names are never repeated across dictionaries, so only a vector that
+        # consists of known names is not a corpus
+        known <- is.pkg | is.letter |
+            vapply(clean, .user_dictionary_exists, logical(1), add.path = add.path)
+
+        if(!all(known))
+        {return(unique(sort(tolower(dictionary))))}
     }
-    
-    #combine into vector and alphabetize
-    full.dict <- unique(sort(unlist(dict.list)))
-    
+
+    # Initialize results
+    dict.list <- vector("list", length(clean))
+    not.found <- logical(length(clean))
+
+    # Cache key for combinations of shipped dictionaries
+    shipped <- is.pkg | is.letter
+    key <- NULL
+
+    if(all(shipped))
+    {
+        key <- paste(sort(unique(tolower(clean))), collapse = "|")
+        cached <- .sndict_cache$combinations[[key]]
+
+        if(!is.null(cached))
+        {return(cached)}
+    }
+
+    # Load each dictionary
+    for(i in seq_along(clean))
+    {
+        if(is.pkg[i])
+        {dict.list[[i]] <- .sorted_dictionary(tolower(clean[i]))
+        }else if(is.letter[i])
+        {dict.list[[i]] <- .letter_dictionary(tolower(clean[i]))
+        }else{
+            user <- .load_user_dictionary(clean[i], add.path)
+
+            if(is.null(user))
+            {not.found[i] <- TRUE
+            }else{dict.list[[i]] <- user}
+        }
+    }
+
+    # Let user know about missing dictionaries
+    if(any(not.found))
+    {
+        absent <- unique(clean[not.found])
+
+        warning(structure(
+            class = c("semnet_dictionary_not_found", "warning", "condition"),
+            list(
+                message = paste0(
+                    paste0("'", absent, "'", collapse = ", "),
+                    if(length(absent) == 1L) " was" else " were",
+                    " not found in existing dictionaries. Dictionaries are looked for in ",
+                    "'SemNetDictionaries', the global environment (as '<name>.dictionary'), ",
+                    "and as '<name>.dictionary.rds' in 'add.path', the working directory, and tempdir()."
+                ),
+                call = NULL,
+                dictionary = absent
+            )
+        ))
+    }
+
+    # Combine into vector and alphabetize (each piece is already sorted and unique)
+    pieces <- dict.list[!not.found]
+
+    if(length(pieces) == 0L)
+    {full.dict <- character(0)
+    }else if(length(pieces) == 1L)
+    {full.dict <- pieces[[1L]]
+    }else{full.dict <- unique(sort(unlist(pieces, use.names = FALSE)))}
+
+    # Store combinations of shipped dictionaries (small, first in first out)
+    if(!is.null(key) && length(pieces) > 0L)
+    {
+        combinations <- .sndict_cache$combinations
+
+        if(is.null(combinations))
+        {combinations <- list()}
+
+        combinations[[key]] <- full.dict
+        .sndict_cache$combinations <- combinations[utils::tail(seq_along(combinations), 8L)]
+    }
+
     return(full.dict)
 }
 #----
+
+#' Does a dictionary from the global environment or a file exist?
+#' @noRd
+# User dictionary exists----
+# Updated 14.10.2026
+.user_dictionary_exists <- function(name, add.path = NULL)
+{
+    object <- paste0(name, ".dictionary")
+
+    (exists(object, envir = globalenv(), inherits = FALSE) &&
+            is.character(get(object, envir = globalenv(), inherits = FALSE))) ||
+        !is.na(.find_dictionary_file(name, add.path))
+}
+
+#' Load a dictionary from the global environment or from a file
+#'
+#' @return Sorted unique words or \code{NULL} if the dictionary does not exist
+#'
+#' @noRd
+# Load user dictionary----
+# Updated 14.10.2026
+.load_user_dictionary <- function(name, add.path = NULL)
+{
+    object <- paste0(name, ".dictionary")
+
+    # Global environment
+    if(exists(object, envir = globalenv(), inherits = FALSE))
+    {
+        words <- get(object, envir = globalenv(), inherits = FALSE)
+
+        if(is.character(words))
+        {return(unique(sort(words)))}
+    }
+
+    # Files
+    file <- .find_dictionary_file(name, add.path)
+
+    if(!is.na(file))
+    {
+        words <- readRDS(file)
+
+        if(is.character(words))
+        {return(unique(sort(words)))}
+    }
+
+    NULL
+}

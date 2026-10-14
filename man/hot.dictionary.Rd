@@ -5,13 +5,13 @@
 \alias{hot.dictionary}
 \title{'Hot' Synonyms Dictionary}
 \format{
-hot.dictionary (vector, length = 281)
+hot.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::hot.dictionary)})
 }
 \usage{
 data(hot.dictionary)
 }
 \description{
-A database of possible hot synonym responses (\emph{n} = 281) 
+A database of possible hot synonym responses (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::hot.dictionary)}) 
 To add additional hot synonyms to the dictionary, please make an
 appendix dictionary (\code{\link[SemNetDictionaries]{append.dictionary}})
 }

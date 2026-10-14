@@ -52,11 +52,21 @@ Only necessary for \code{save.location = "path"}}
 \item{textcleaner}{Boolean.
 Argument for skipping asking to save the dictionary twice.
 Defaults to \code{FALSE}.
-If \code{TRUE}, then asking to save the dictionary will be skipped.}
+If \code{TRUE}, then asking to save the dictionary will be skipped.
+The existing dictionary is the argument in \code{...} whose expression
+contains "dictionary" (e.g., \code{full_dictionary}); if there is none, it is
+all arguments after the first one. Everything else is treated as new words.
+When the dictionary file already exists, only the new words are added to it. The
+words of the dictionary argument that the file does not have are not saved, which
+gives a warning of class \code{"semnet_dictionary_words_not_saved"}}
 
 \item{package}{Boolean.
-Argument not meant for user use.
-Allows me to update the package's dictionaries efficiently}
+Defunct. It was used to update the package's own dictionaries and is no longer available}
+}
+\value{
+If \code{save.location = "envir"}, the sorted, unique, lower case
+words (vector). Otherwise, the dictionary is saved to a file and \code{NULL}
+is returned invisibly
 }
 \description{
 A function designed to create post-hoc dictionaries in the
@@ -68,6 +78,10 @@ dictionaries can be uploaded to and downloaded from
 \href{https://github.com/AlexChristensen/SemNetDictionaries}{https://github.com/AlexChristensen/SemNetDictionaries}
 }
 \details{
+Words are added to a dictionary that is already sorted, unique, and
+lower case (such as the vector returned by a previous call) without sorting
+the dictionary again, which makes adding words one at a time fast.
+
 Appendix dictionaries are useful for storing spelling
 definitions that are not available in the \code{\link{SemNetDictionaries}}
 package. This function enables the storage of personalized dictionaries,

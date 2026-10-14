@@ -5,7 +5,7 @@
 \alias{coca.dictionary}
 \title{Corpus of Contemporary American English Dictionary}
 \format{
-coca.dictionary (vector, length = 80381)
+coca.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::coca.dictionary)})
 }
 \usage{
 data(coca.dictionary)

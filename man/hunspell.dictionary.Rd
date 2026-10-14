@@ -5,7 +5,7 @@
 \alias{hunspell.dictionary}
 \title{hunspell Dictionary}
 \format{
-hunspell.dictionary (vector, length = 62893)
+hunspell.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::hunspell.dictionary)})
 }
 \usage{
 data(hunspell.dictionary)

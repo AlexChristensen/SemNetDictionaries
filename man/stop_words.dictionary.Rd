@@ -5,13 +5,13 @@
 \alias{stop_words.dictionary}
 \title{Stop Words Dictionary}
 \format{
-stop_words.dictionary (vector, length = 56)
+stop_words.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::stop_words.dictionary)})
 }
 \usage{
 data(stop_words.dictionary)
 }
 \description{
-A selection of stop words that can be removed from semantic responses (\emph{n} = 56)
+A selection of stop words that can be removed from semantic responses (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::stop_words.dictionary)})
 }
 \details{
 To add additional animals to the dictionary, please make an

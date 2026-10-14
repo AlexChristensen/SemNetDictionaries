@@ -13,7 +13,7 @@
 #' 
 #' @usage data(most_common.dictionary)
 #' 
-#' @format most_common.dictionary (vector, length = 9329)
+#' @format most_common.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::most_common.dictionary)})
 #' 
 #' @keywords datasets
 #' 

@@ -5,13 +5,13 @@
 \alias{jobs.dictionary}
 \title{Jobs Dictionary}
 \format{
-jobs.dictionary (vector, length = 1471)
+jobs.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::jobs.dictionary)})
 }
 \usage{
 data(jobs.dictionary)
 }
 \description{
-A database of possible jobs and related words (\emph{n} = 1471)
+A database of possible jobs and related words (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::jobs.dictionary)})
 }
 \details{
 To add additional jobs to the dictionary, please make an

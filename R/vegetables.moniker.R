@@ -12,7 +12,7 @@
 #' 
 #' @usage data(vegetables.moniker)
 #' 
-#' @format vegetables.moniker (list, length = 35)
+#' @format vegetables.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::vegetables.moniker)})
 #' 
 #' @keywords datasets
 #' 

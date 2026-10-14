@@ -5,13 +5,13 @@
 \alias{brit2us}
 \title{British-US English Conversions}
 \format{
-brit2us (list, length = 780)
+brit2us (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::brit2us)})
 }
 \usage{
 data(brit2us)
 }
 \description{
-A database to convert between British and US spellings (\emph{n} = 780)
+A database to convert between British and US spellings (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::brit2us)})
 }
 \examples{
 data("brit2us")

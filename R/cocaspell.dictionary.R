@@ -13,7 +13,7 @@
 #' 
 #' @usage data(cocaspell.dictionary)
 #' 
-#' @format cocaspell.dictionary (vector, length = 109169)
+#' @format cocaspell.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::cocaspell.dictionary)})
 #' 
 #' @keywords datasets
 #' 

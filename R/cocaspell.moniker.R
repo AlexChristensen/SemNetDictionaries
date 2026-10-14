@@ -12,7 +12,7 @@
 #' 
 #' @usage data(cocaspell.moniker)
 #' 
-#' @format cocaspell.moniker (list, length = 29610)
+#' @format cocaspell.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::cocaspell.moniker)})
 #' 
 #' @keywords datasets
 #' 

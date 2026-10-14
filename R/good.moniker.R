@@ -12,7 +12,7 @@
 #' 
 #' @usage data(good.moniker)
 #' 
-#' @format good.moniker (list, length = 4)
+#' @format good.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::good.moniker)})
 #' 
 #' @keywords datasets
 #' 

@@ -1,7 +1,7 @@
 #General Dictionary----
 #' General Dictionary
 #'
-#' A general dictionary of over 370,000 words (\emph{n} = 370,103) derived from
+#' A general dictionary of over 370,000 words (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::general.dictionary)}) derived from
 #' \href{https://github.com/dwyl/english-words}{https://github.com/dwyl/english-words}.
 #' All punctuation have been removed.
 #' 
@@ -14,7 +14,7 @@
 #' 
 #' @usage data(general.dictionary)
 #' 
-#' @format general.dictionary (vector, length = 370103)
+#' @format general.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::general.dictionary)})
 #' 
 #' @keywords datasets
 #' 

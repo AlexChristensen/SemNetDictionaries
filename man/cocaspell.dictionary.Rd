@@ -5,7 +5,7 @@
 \alias{cocaspell.dictionary}
 \title{Corpus of Contemporary American English and Hunspell Combined Dictionary}
 \format{
-cocaspell.dictionary (vector, length = 109169)
+cocaspell.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::cocaspell.dictionary)})
 }
 \usage{
 data(cocaspell.dictionary)

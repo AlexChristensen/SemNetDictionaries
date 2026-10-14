@@ -5,13 +5,13 @@
 \alias{animals.dictionary}
 \title{Animals Dictionary}
 \format{
-animals.dictionary (vector, length = 1211)
+animals.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::animals.dictionary)})
 }
 \usage{
 data(animals.dictionary)
 }
 \description{
-A database of possible animals responses (\emph{n} = 1211)
+A database of possible animals responses (\emph{n} = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::animals.dictionary)})
 }
 \details{
 To add additional animals to the dictionary, please make an

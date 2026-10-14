@@ -26,19 +26,24 @@ The *SemNetDictionaries* package contains several functions that facilitate the 
 The dictionaries contained in the package currently include verbal fluency categories of *animals*, *fruits*, *vegetables*, and *jobs* as well as synonym categories of *hot* and *good* (Table 1). A *general* dictionary also accommodates phonological fluency tasks with the use of single letters (e.g., words that start with \`f\'). For each category and synonym dictionary, there is an accompanying moniker glossary that is used to automatically convert monikers (e.g., *bear cat*) and common misspellings (e.g., *binterong*) into a homogeneous response (e.g., *binturong*). These categories were included because the authors have data for them; however, we note that there are other possible verbal fluency categories.
 
 ```{r tab1, echo = FALSE, eval = TRUE, comment = NA, warning = FALSE}
-output <- matrix(c("animals", length(animals.dictionary), "Category",
-                   "fruits", length(fruits.dictionary), "Category",
-                   "general", length(general.dictionary), "All-purpose",
-                   "good", length(good.dictionary), "Synonym",
-                   "hot", length(hot.dictionary), "Synonym",
-                   "jobs", length(jobs.dictionary), "Category",
-                   "vegetables", length(vegetables.dictionary), "Category"),
-                 ncol = 3, byrow = TRUE)
+n_monikers <- function(name)
+{
+    length(load.monikers(name, vector = FALSE))
+}
+
+output <- matrix(c("animals", length(animals.dictionary), n_monikers("animals"), "Category",
+                   "fruits", length(fruits.dictionary), n_monikers("fruits"), "Category",
+                   "general", length(general.dictionary), "-", "All-purpose",
+                   "good", length(good.dictionary), n_monikers("good"), "Synonym",
+                   "hot", length(hot.dictionary), n_monikers("hot"), "Synonym",
+                   "jobs", length(jobs.dictionary), n_monikers("jobs"), "Category",
+                   "vegetables", length(vegetables.dictionary), n_monikers("vegetables"), "Category"),
+                 ncol = 4, byrow = TRUE)
 
 
 htmlTable(output,
-          header = c("Dictionary", "Entries", "Type"),
-          caption = "Table 1. Dictionaries in SemNetDictionaries")
+          header = c("Dictionary", "Entries", "Monikers", "Type"),
+          caption = "Table 1. Dictionaries in SemNetDictionaries (monikers are the number of words that have variants)")
 ```
 
 The development of these category and synonym dictionaries included searching \href{https://www.google.com}{\textit{Google}} for lists of category exemplars and \href{https://www.thesaurus.com}{Thesaurus.com} for synonyms. Their development was also aided by responses from several hundred participants, who generated verbal fluency responses for some of these categories [@christensen2018remotely], as well as responses from other unpublished data. Finally, the general dictionary was added for phonological fluency tasks and generic spell-checking purposes. This dictionary was retrieved from the *dwyl* Github repository for English words: \href{https://github.com/dwyl/english-words}{https://github.com/dwyl/english-words}. To load some of these dictionaries, the following code can be used:
@@ -54,7 +59,18 @@ load.dictionaries("f")
 load.dictionaries("fruits", "vegetables")
 ```
 
-The `load.dictionaries` function will load as many dictionaries as are entered. The function will alphabetically sort and remove any duplicates found between the dictionaries. Thus, it returns an alphabetized vector the length of the unique words in the dictionaries.
+The `load.dictionaries` function will load as many dictionaries as are entered. The function will alphabetically sort and remove any duplicates found between the dictionaries. Thus, it returns an alphabetized vector the length of the unique words in the dictionaries. Dictionaries from the package are only prepared once per session, so loading them again is fast. A dictionary that cannot be found gives a warning (of class `semnet_dictionary_not_found`) and is left out. Besides the package, dictionaries are looked for in your global environment (objects called `*.dictionary`) and in files called `*.dictionary.rds` in the directory given in `add.path`, the working directory, and `tempdir()`.
+
+## Monikers
+Each category and synonym dictionary has a moniker glossary, which lists variants (common misspellings, plurals, spelling and spacing variants, and alternate names) for the words in the dictionary. A variant is converted to its target word, and a variant is never also an entry in the dictionary because responses that are in the dictionary are accepted as they are:
+
+```{r Load monikers, echo = TRUE, eval = TRUE, comment = NA, warning = FALSE}
+# Variants as a vector (names are the target word, numbered when there is more than one variant)
+head(load.monikers("animals"))
+
+# Variants of each word as a list
+load.monikers("animals", vector = FALSE)[c("alligator", "binturong")]
+```
 
 ## Custom dictionaries
 A notable feature of the *SemNetDictionaries* package is that users can define their own dictionaries using the `append.dictionary` function. With this function, users can create their own custom dictionaries or append pre-defined dictionaries so that they can be used for future data cleaning and preprocessing. To create your own dictionary, the following code can be used:

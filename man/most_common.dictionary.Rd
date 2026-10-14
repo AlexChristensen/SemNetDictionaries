@@ -5,7 +5,7 @@
 \alias{most_common.dictionary}
 \title{Most Common Dictionary}
 \format{
-most_common.dictionary (vector, length = 9329)
+most_common.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::most_common.dictionary)})
 }
 \usage{
 data(most_common.dictionary)

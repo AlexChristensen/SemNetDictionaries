@@ -11,5 +11,4 @@
 #' @importFrom utils packageVersion
 #' 
 "_PACKAGE"
-#> [1] "_PACKAGE"
-#SemNetDictionaries----
+#----

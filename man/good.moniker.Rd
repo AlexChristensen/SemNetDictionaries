@@ -5,7 +5,7 @@
 \alias{good.moniker}
 \title{'Good' Moniker}
 \format{
-good.moniker (list, length = 4)
+good.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::good.moniker)})
 }
 \usage{
 data(good.moniker)

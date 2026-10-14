@@ -7,6 +7,7 @@
 #' Defaults to \code{FALSE}
 #' 
 #' @return Returns the names of dictionaries in \code{\link{SemNetDictionaries}}
+#' (invisibly unless \code{quiet = TRUE})
 #' 
 #' @examples
 #' # List names of dictionaries in 'SemNetDictionaries'
@@ -18,33 +19,24 @@
 #' \code{\link{append.dictionary}} to create a new dictionary
 #' 
 #' @export
-#Find Dictionaries
-dictionaries <- function (quiet)
+# Find Dictionaries
+# Updated 14.10.2026
+dictionaries <- function (quiet = FALSE)
 {
-    #missing argument
-    if(missing(quiet))
-    {quiet <- FALSE
-    }else{quiet <- TRUE}
-    
-    #grab dictionary names
-    data.files <- readRDS(system.file("data","Rdata.rds",package="SemNetDictionaries"))
-    
-    #remove .dictionary
-    dicts <- gsub(".dictionary.*","",data.files)
-    
-    #target dictionarys
-    dict.names <- dicts[which(is.na(match(data.files,dicts)))]
-    
-    if(!quiet)
-    {
-        #print dictionary names to user
-        print(dict.names)
-        
-        #message for single letter dictionaries
-        message('Single letter dictionaries can also be used (e.g., "f")')
-        
-        #suppress return
-        invisible(dict.names)
-    }else{return(dict.names)}
+    # Names of the dictionaries shipped with the package
+    dict.names <- .shipped_names(".dictionary")
+
+    # Quiet return
+    if(isTRUE(quiet))
+    {return(dict.names)}
+
+    # Print dictionary names to user
+    print(dict.names)
+
+    # Message for single letter dictionaries
+    message('Single letter dictionaries can also be used (e.g., "f")')
+
+    # Suppress return
+    invisible(dict.names)
 }
 #----

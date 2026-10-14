@@ -13,7 +13,7 @@
 #' 
 #' @usage data(hunspell.dictionary)
 #' 
-#' @format hunspell.dictionary (vector, length = 62893)
+#' @format hunspell.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::hunspell.dictionary)})
 #' 
 #' @keywords datasets
 #' 

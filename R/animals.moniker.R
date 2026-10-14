@@ -12,7 +12,7 @@
 #' 
 #' @usage data(animals.moniker)
 #' 
-#' @format animals.moniker (list, length = 236)
+#' @format animals.moniker (list, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::animals.moniker)})
 #' 
 #' @keywords datasets
 #' 

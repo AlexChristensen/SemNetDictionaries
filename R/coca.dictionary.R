@@ -13,7 +13,7 @@
 #' 
 #' @usage data(coca.dictionary)
 #' 
-#' @format coca.dictionary (vector, length = 80381)
+#' @format coca.dictionary (vector, length = \Sexpr[results=text,stage=render]{length(SemNetDictionaries::coca.dictionary)})
 #' 
 #' @keywords datasets
 #' 

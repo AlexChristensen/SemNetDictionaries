@@ -1,7 +1,7 @@
-^\.dictionaries$
+^data-raw$
 ^\.git$
 ^\.github$
 ^\.Rproj\.user$
-^Readme\.md$
-.gitignore
-LICENSE
+^README\.md$
+^\.gitignore$
+^LICENSE$

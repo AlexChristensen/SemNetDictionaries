@@ -4,33 +4,38 @@
 \alias{find.dictionaries}
 \title{Finds Names and Locations of Appendix Dictionaries}
 \usage{
-find.dictionaries(..., add.path = NULL)
+find.dictionaries(..., add.path = NULL, recursive = FALSE)
 }
 \arguments{
 \item{...}{Vector.
-Appendix dictionary files names (if they are known).
-If left empty, the function will search across
-all files for files in folders on your desktop
-that end in \code{*.dictionary.rds}.
-This search takes a few seconds to complete
-(see examples for your computer's exact timing)}
+Dictionary names (if they are known).
+If left empty, all dictionaries that can be found are returned.}
 
 \item{add.path}{Character.
-Path to additional dictionaries to be found.
-DOES NOT search recursively (through all folders in path)
-to avoid time intensive search.
+Path to a directory with additional dictionaries to be found.
 Set to \code{"choose"} to open an interactive directory explorer}
+
+\item{recursive}{Boolean.
+Should directories be searched recursively (through all folders in them)?
+Defaults to \code{FALSE} because searching large folders is time intensive}
 }
 \value{
-\item{names}{Returns the names of the appendix dictionary file(s) found on your computer}
+\item{names}{Returns the names of the dictionaries found}
 
-\item{files}{Returns the dictionary file(s) that are stored in each given path. If there is no output
-(e.g., \code{character(0)}), then no appendix dictionary file exists
+\item{files}{Returns where each dictionary is stored: \code{"package"},
+\code{"envir"}, or the path to the file. If there is no output
+(e.g., \code{character(0)}), then no dictionary was found
 (one can be created using the \code{\link[SemNetDictionaries]{append.dictionary}} function)}
 }
 \description{
 A wrapper function to identify the save location
 of appendix dictionaries from \code{\link[SemNetDictionaries]{append.dictionary}}
+}
+\details{
+Dictionaries are looked for in the \code{\link{SemNetDictionaries}}
+package, \code{R}'s global environment (objects called \code{"*.dictionary"}),
+and \code{"*.dictionary.rds"} files in \code{add.path}, the working directory,
+and \code{tempdir()}
 }
 \examples{
 # Make a dictionary
@@ -38,15 +43,8 @@ example.dictionary <- append.dictionary(c("words","are","fun"), save.location = 
  
 # Dictionary can now be found
 find.dictionaries("example")
-\donttest{
-# No appendix dictionaries found
+# All dictionaries that can be found
 find.dictionaries()
-
-# For your computer's timing to complete search
-t0 <- Sys.time()
-find.dictionaries()
-Sys.time() - t0
-}
 
 }
 \seealso{

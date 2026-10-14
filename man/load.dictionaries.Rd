@@ -8,31 +8,40 @@ load.dictionaries(..., add.path = NULL)
 }
 \arguments{
 \item{...}{Character.
-Dictionaries to load
+Dictionaries to load. Dictionary names are not case sensitive for the
+dictionaries in \code{\link{SemNetDictionaries}} and for single letters.
+A \code{".dictionary"} suffix is ignored.
 
 Dictionaries in your global environment
-MUST be objects called \code{"*.dictionary"} (see examples)}
+MUST be objects called \code{"*.dictionary"} (see examples)
+
+More than 10 values that are not all dictionary names are treated as a
+corpus: the (lower case) words are returned as a sorted, unique vector}
 
 \item{add.path}{Character.
-Path to additional dictionaries to be found.
-DOES NOT search recursively (through all folders in path)
-to avoid time intensive search.
-Set to \code{"choose"} to open an interactive directory explorer
+Path to a directory with additional \code{"*.dictionary.rds"} files
+(see \code{\link{append.dictionary}}). The directory is NOT searched
+recursively. Set to \code{"choose"} to open an interactive directory explorer
 
-\code{\link[SemNetDictionaries]{dictionaries}} will identify dictionaries in the \code{\link{SemNetDictionaries}} package
-
-\code{\link[SemNetDictionaries]{find.dictionaries}} will identify dictionaries on your computer}
+Dictionaries are looked for in this order: the \code{\link{SemNetDictionaries}}
+package (see \code{\link[SemNetDictionaries]{dictionaries}}), the global
+environment, \code{add.path}, the working directory, and \code{tempdir()}
+(see \code{\link[SemNetDictionaries]{find.dictionaries}})}
 }
 \value{
 Returns a vector of unique words that have been combined
-and alphabetized from the specified dictionaries
+and alphabetized from the specified dictionaries.
+If a dictionary cannot be found, a warning of class
+\code{"semnet_dictionary_not_found"} is given and the dictionary is left out
+(an empty \code{character} vector is returned when none are found)
 }
 \description{
 A wrapper function to load dictionaries into
-the 'SemNetCleaner' package. Searches for dictionaries in \code{R}'s global
-environment, the \code{\link{SemNetDictionaries}} package, and on your computer.
-Outputs a unique word list that is combined from all dictionaries entered 
-in the \code{dictionary} argument
+the 'SemNetCleaner' package. Searches for dictionaries in the
+\code{\link{SemNetDictionaries}} package, \code{R}'s global
+environment, and a few directories on your computer.
+Outputs a unique word list that is combined from all dictionaries entered
+in the \code{...} argument
 }
 \examples{
 # Find dictionaries to load

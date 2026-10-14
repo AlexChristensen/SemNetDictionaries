@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+*.Rcheck/
+*.tar.gz
+vignettes/*.html
+inst/doc
+
+# Local only (not on GitHub): the scripts and sources that build data/
+data-raw/
